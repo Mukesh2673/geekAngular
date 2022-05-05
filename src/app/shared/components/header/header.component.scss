@@ -1,0 +1,91 @@
+.animated{
+    animation-name:fadeInUp;
+    margin-top: 60px;
+}
+
+@media (max-width: 767.98px) and (min-width: 576px){
+    .header .form-inline .btn {
+        position: absolute !important;
+    }
+}
+.app-header .header-brand{margin-right:0 !important}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0,10%,0) !important;
+    }
+    100% {
+        opacity: 1;
+        transform: translateZ(0);
+    }
+}
+
+.dropdown-toggle::after{
+    display: none;
+}
+
+::ng-deep{
+    @media only screen and (max-width: 767px) and (min-width: 568px){
+        .dark-mode{
+            .app.light-mode .app-header .header-brand .header-brand-img.desktop-lgo{
+                display: none !important;
+            }
+            .dark-logo{
+                display: block !important;
+                margin-top: 6px;
+            }
+        }
+    }
+    @media only screen and (max-width: 567px){
+        .dark-mode{
+            .app.light-mode .app-header .header-brand .header-brand-img.mobile-logo {
+                display: none !important;
+            }
+            .header-brand-img.darkmobile-logo{
+                margin-top: 8px;
+            }
+        }
+    }
+
+    
+    .boxed{
+        .header-option .dropdown-menu{
+            left: 0 !important;
+            right: initial !important;
+        }
+    }
+
+    @media (max-width: 767.98px) and (min-width: 576px){
+        .header-brand-img.mobile-logo,
+        .dark-logo,
+        .darkmobile-logo{
+            display: none ;
+        }
+    }
+    
+    .dark-mode{
+        @media (max-width: 767.98px) and (min-width: 576px){
+            .header-brand-img.desktop-lgo{
+                display: none !important;
+            }
+        }
+        @media (min-width:568px) {
+            .card .header .desktop-lgo{
+                display: none;
+            }
+            .card .header  .dark-logo{
+                display: initial;
+            }
+        }
+    }
+    
+    @media (min-width:568px) {
+        .bg-primary  .desktop-lgo{
+            display: none;
+        }
+        .bg-primary .dark-logo{
+            display: initial;
+        }
+    }
+}

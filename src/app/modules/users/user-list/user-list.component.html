@@ -1,0 +1,59 @@
+<!--Page header-->
+<div class="page-header">
+	<div class="page-leftheader">
+		<h4 class="page-title">Data Tables</h4>
+	</div>
+	<div class="page-rightheader ms-auto d-lg-flex d-none">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="javascript:void(0)" class="d-flex"><svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z"/><path d="M7 10.19V18h2v-6h6v6h2v-7.81l-5-4.5z" opacity=".3"/></svg><span class="breadcrumb-icon"> Home</span></a></li>
+			<li class="breadcrumb-item"><a href="javascript:void(0)">Tables</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Data Tables</li>
+		</ol>
+	</div>
+</div>
+<!--End Page header-->
+
+<!-- row opened -->
+<div class="row row-sm">
+	<div class="col-xl-12">
+		<div class="card">
+			<div class="card-header pb-0">
+			<div>
+				<h6 class="main-content-label mb-1">Simple DataTable</h6>
+				<p class="text-muted card-sub-title">Searching, ordering and paging goodness will be immediately added to the table, as shown in this example.</p>
+			</div>
+            <div>
+                <a routerLink="/users/add" routerLinkActive="active" class="btn btn-primary">Add User</a>
+            </div>
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table text-md-nowrap" id="myTable1">
+						<thead>
+							<tr>
+								<th class="wd-15p border-bottom-0">First name</th>
+								<th class="wd-15p border-bottom-0">Last name</th>
+								<th class="wd-20p border-bottom-0">Position</th>
+								<th class="wd-15p border-bottom-0">Start date</th>
+								<th class="wd-10p border-bottom-0">Salary</th>
+								<th class="wd-25p border-bottom-0">E-mail</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let table of dataTable">
+								<td>{{table.firstName}}</td>
+								<td>{{table.lastName}}</td>
+								<td>{{table.position}}</td>
+								<td>{{table.startdate}}</td>
+								<td>{{table.salary  | currency:'USD':'symbol':'3.0-0'}}</td>
+								<td>{{table.email}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	

@@ -1,0 +1,67 @@
+
+    .circleSize{
+        width: 160px;
+        height: 160px;
+    }
+    ::ng-deep{
+        .header-icon2 {
+            width: 25px;
+            position: relative !important;
+            z-index: 9;
+            right: -45px;
+            left: initial !important;
+            top: initial !important;
+        }
+        .show-ranges{
+            z-index: 50 !important;
+            right: 0 !important;
+            left: auto !important;
+        }
+        .md-drppicker .clear svg{
+            margin-top: -12px !important;
+        }
+        svg{
+            overflow: visible !important;
+        }
+    }
+
+
+    
+::ng-deep{
+    .dark-mode{
+
+        app-dashboard02{
+            .ranges ul li  button{
+                color: #fff;
+            }
+
+            .md-drppicker,
+            .md-drppicker .calendar-table{
+                background-color: #10163a !important;
+                border: 1px solid #10163a !important;
+            }
+            .md-drppicker td.available.prev, .md-drppicker th.available.prev,
+            .md-drppicker td.available.next, .md-drppicker th.available.next{
+                background-color: rgb(146, 146, 146) ;
+            }
+            .md-drppicker td.available:hover, .md-drppicker th.available:hover{
+                color: #000 !important;
+            }
+            .md-drppicker .btn, .md-drppicker .btn:focus, .md-drppicker .btn:hover{
+                background-color:transparent !important;
+                color: #fff !important;
+            }
+            .md-drppicker .clear svg{
+                margin-top: -12px !important;
+            }
+            .md-drppicker .ranges ul li:hover {
+                background-color: #10163a !important;
+            }
+
+            line,
+            .apexcharts-inner path{
+                stroke: rgba($color: #fff, $alpha: 0.1) !important;
+            }
+        }
+    }
+}

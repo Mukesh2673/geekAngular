@@ -1,0 +1,48 @@
+.side-menu .side-menu__icon{
+    vertical-align: inherit;
+    margin-left : 0 ;
+}
+::ng-deep{
+    .default-sidebar.sidenav-toggled.sidenav-toggled1 .app-sidebar2 .mobile-logo{
+        display: none !important;
+    }
+    @media (max-width:768px) {
+        .app.sidebar-mini.sidenav-toggled .side-menu .side-menu__icon{
+            padding-top: 6px !important;
+        }
+        .app.sidebar-mini.sidenav-toggled.sidenav-toggled1 .app-sidebar .side-menu__icon{
+            padding-top: 6px !important;
+        }
+    }
+
+    .ps{
+        touch-action: none !important;
+    }
+}
+.dropup .dropdown-toggle::after{
+    display: none;
+}
+.app-sidebar-help{
+    transition: left .3s ease,width .3s ease;
+}
+.sub-angle {
+    line-height: 40px !important;
+}
+.side-menu__icon {
+    fill: #d2d6f1 ;
+}
+::ng-deep{
+    .color-sidebar .side-menu__icon, .dark-sidebar .side-menu__icon{
+        fill: rgba(255,255,255,.08) !important;
+    }
+    
+    .sidenav-toggled .help .dropdown-menu-end.show{
+        display: none;
+    }
+    .sidenav-toggled.sidenav-toggled1 .help .dropdown-menu-end.show{
+        display: initial;
+    }
+}
+.dropdown-menu-end{
+    transform: translate(0,-248px) !important;
+}

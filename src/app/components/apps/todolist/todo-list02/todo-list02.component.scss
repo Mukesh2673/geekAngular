@@ -1,0 +1,25 @@
+::ng-deep{
+    app-todo-list02{
+        @media (min-width:1200px) and (max-width:1314px) {
+            .float-end{
+                float:left !important
+            }
+            
+        }
+    }
+    .boxed{
+        app-todo-list02{
+            @media (min-width:1200px)  {
+                .float-end{
+                    float:left !important
+                }
+                
+            }
+        }
+    }
+}
+
+.new-list.option-dots{
+    top: 0 !important;
+    right: 0 !important;
+}

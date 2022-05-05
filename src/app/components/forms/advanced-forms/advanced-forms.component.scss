@@ -1,0 +1,359 @@
+::ng-deep {
+    .dropzone{
+        border: 1px solid #e3e4e9;
+        border-radius: 4px;
+    }
+    .dz-message.needsclick{
+        color: #728096;
+    }
+    .dz-message h6{
+        font-weight: 400;
+    }
+    .dz-message i{
+        font-size: 1.5rem;
+    }
+    .iti--allow-dropdown input{
+        border: 0;
+    }
+    .iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag{
+        background:none;
+    }
+    .country-dropdown{
+        background-color: white;
+        border: 1px solid #ebecf1 !important;
+        border-radius: 4px;
+        box-shadow: 0px 16px 18px rgba(4, 4, 7, 0.1);
+    }
+    #country-search-box, .iti__divider{
+        border:1px solid #e3e4e9;
+    }
+    .iti__country:hover{
+        background: #f0f0f2 !important;
+    }
+    .ng-select .ng-select-container, .ng-select.ng-select-opened > .ng-select-container{
+        border:1px solid #e3e4e9;
+    }
+    .ng-dropdown-panel, .list-area{
+        border: 1px solid #ebecf1 !important;
+        border-radius: 4px;
+        box-shadow: 0px 16px 18px rgba(4, 4, 7, 0.1);
+    }
+    .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected, .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked,
+    .dropdown-list ul li:hover, .selected-item{
+        background-color: #f0f0f2;
+    }
+    .ng-select.ng-select-focused:not(.ng-select-opened) > .ng-select-container{
+        border-color:#ebecf1;
+        box-shadow: none;
+    }
+    .ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value{
+        background-color: #f0f0f2 !important;
+        border: 1px solid #ebeef4 !important;
+    }
+    .ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value .ng-value-icon.left{
+        border-right: 1px solid #ebeef4 !important;
+    }
+    .selected-list .c-btn:focus{
+        outline: 0;
+    }
+    .c-btn{
+        border:1px solid #e3e4e9;
+    }
+    .selected-list .c-list .c-token .c-remove svg, .selected-list .c-list .c-token .c-label{
+        color: #1a1630;
+        fill:#1a1630 !important;
+    }
+    .selected-list .c-list .c-token{
+        background: #f0f0f2;
+        border-radius: 4px !important;
+    }
+    .selected-list .c-angle-down, .selected-list .c-angle-up{
+        width: 8px !important;
+        height: 8px !important;
+        top:40% !important;
+    }
+    .clear-all{
+        width: 6px !important;
+        top:48% !important;
+    }
+    .pure-checkbox input[type="checkbox"] + label:before{
+        color: #cccdd3; 
+        border: 1px solid#cccdd3;
+    }
+    .pure-checkbox.selected-item input[type="checkbox"] + label:before,
+    .pure-checkbox input[type="checkbox"]:focus + label:before, .pure-checkbox input[type="checkbox"]:hover + label:before{
+        color:#705ec8;
+        background:#705ec8 !important; 
+        border: 1px solid#705ec8;
+    }
+    .pure-checkbox input[type="checkbox"]:checked + label:before,.pure-checkbox input[type=checkbox]:focus+label:before, .pure-checkbox input[type=checkbox]:hover+label:before{
+        background:#705ec8; 
+    }
+    .list-filter, .select-all{
+        border-bottom: 1px solid #ebeef4 !important;
+    }
+    .c-btn.disabled {
+        background: #f3f4f7 !important;
+    }
+    .arrow-down.arrow-2, .arrow-2.arrow-up, .arrow-2, .arrow-down, .arrow-up{
+        display: none;
+        border:0;
+    }
+    .dropdown-list{
+        bottom: 37px !important;
+    }
+    
+    .iti--allow-dropdown input {
+        border: 0;
+        outline: none;
+    }
+    .c-btn {
+        border: 1px solid #e1e6f1;
+        color: #a8afc7;
+    }
+    .selected-list .c-btn {
+        outline: none;
+    }
+    .c-btn.disabled {
+        background: #ffff !important;
+        cursor: not-allowed !important;
+        // pointer-events: none;
+    }
+
+     //dropzone
+     .dropzone {
+        border: 1px solid #e0e2f7;
+        border-radius: 4px;
+    }
+    .dz-message.needsclick {
+        color: #334151;
+        // color: #a8afc7;
+    }
+    .dz-message h6 {
+        font-weight: 400;
+    }
+    .dz-message i {
+        font-size: 1.5rem;
+    }
+    .dropzone.dropzone-primary.disable {
+        cursor: not-allowed;
+    }
+
+    .ng-dropdown-panel, .dropdown-list{
+        z-index: 3 !important;
+    }
+    .input-group-btn{
+        z-index: 2;
+    }
+
+    //browse file
+    .browse-file {
+        outline: none;
+        visibility: hidden;
+    }
+    .custom-file-label {
+        height: 38px;
+        border-radius: 5px;
+    }
+    .custom-file-label::after {
+        background: #f1f4fb !important;
+        color: #68769a !important;
+        height: 38px;
+    }
+
+    //ng2-date-picker
+    dp-date-picker,
+    dp-date-picker.dp-material .dp-picker-input {
+        width: 100% !important;
+        height: 38px !important;
+    }
+    dp-date-picker.dp-material .dp-picker-input {
+        font-weight: 400;
+        line-height: 1.5;
+        color: #a8afc7;
+        background-color: #ffffff;
+        background-clip: padding-box;
+        border: 1px solid #e8e8f7;
+        border-radius: 5px;
+    }
+
+    dp-day-calendar.dp-material .dp-current-day {
+        border: 1px solid #0162e8 !important;
+        background: #0162e8 !important;
+        color: #fff;
+    }
+    dp-calendar-nav.dp-material .dp-calendar-nav-container {
+        border: 1px solid #e8e8f7 !important;
+        height: 40px !important;
+    }
+    dp-calendar-nav.dp-material .dp-nav-header-btn {
+        font-weight: bold;
+        color: #3b4863;
+    }
+    dp-day-calendar.dp-material .dp-calendar-wrapper {
+        border: 1px solid #e8e8f7 !important;
+        padding: 10px;
+    }
+    dp-day-calendar.dp-material .dp-calendar-weekday {
+        color: #3b4863 !important;
+        width: 33px !important;
+    }
+
+    dp-day-calendar .dp-calendar-day {
+        width: 33px !important;
+    }
+    dp-calendar-nav .dp-nav-btns-container {
+        padding: 15px;
+    }
+    dp-calendar-nav .dp-calendar-nav-container-left,
+    dp-calendar-nav .dp-calendar-nav-container-right {
+        padding: 5px;
+    }
+
+    .ng-dropdown-panel{
+        z-index: 3 !important;
+    }
+    
+
+    .dp-material.dp-popup{
+        position: absolute !important;
+        left: -55px !important;
+    }
+    .md-drppicker.drops-down-auto.ltr{
+        top: 47px !important;
+        left: auto !important;
+        right: 2px !important;
+    }
+    @media (min-width:576px) {
+        .md-drppicker{
+            width: 500px !important;
+        }
+    }
+    
+    
+    
+}
+.form-control input{
+    border: none;
+    width: 100%;
+}
+@media (max-width:775px) {
+    .input-group-prepend{
+        height: 40px !important;
+    }
+}
+
+.dp-material{
+    display: none !important;
+}
+
+@media (max-width:345px) {
+    .main-toggle.on span{
+        left: 56% !important;
+    }
+}
+
+::ng-deep{
+  .dark-mode{
+    app-advanced-forms{
+        .color-picker{
+            background: #10163a;
+        }
+        .color-picker .hex-text .box input,
+        .color-picker {
+            border: 1px solid #272e48;
+        }
+        .md-drppicker{
+            background-color: #262c4a;
+        }
+        .md-drppicker .calendar-table {
+            border: 1px solid #222848;
+            padding: 4px;
+            border-radius: 4px;
+            background-color: #10163a;
+        }
+        .md-drppicker td.available.prev, .md-drppicker th.available.prev,
+        .md-drppicker td.available.next, .md-drppicker th.available.next{
+            background-color: #cfd0d8;
+        }
+        .list-area {
+            background: #10163a;
+        }
+        .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected, .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked, .dropdown-list ul li:hover, .selected-item {
+            background-color: #10163a;
+        }
+        .list-filter, .select-all {
+            border-bottom: 1px solid #242c4a !important;
+        }
+        .c-btn {
+            border: 1px solid #272d4b;
+            color: #a8afc7;
+        }
+        .c-btn.disabled {
+            background: #242c4a !important;
+            cursor: not-allowed !important;
+        }
+        .selected-list .c-list .c-token{
+            background: transparent;
+        }
+        .selected-list .c-list .c-token .c-remove svg, .selected-list .c-list .c-token .c-label {
+            color: #eee;
+            fill: #fff !important;
+        }
+        .c-remove svg, 
+        .selected-list .c-angle-down svg, .selected-list .c-angle-up svg{
+
+            fill: #fff;
+        }
+        .dark-mode .iti input, .dark-mode .iti input[type=text], .dark-mode .iti input[type=tel]{
+            border: none ;
+        }
+
+        #country-search-box, .iti__divider {
+            border: 1px solid #272c48;
+        }
+        .country-dropdown {
+            border: 1px solid #272f48 !important;
+        }
+        .dropdown-menu{
+            background: #10163a !important;
+        }
+        .iti__country:hover {
+            background: #1d2446 !important;
+        }
+        li{
+            border-bottom: 1px solid #10163a !important;
+            border-top: thin solid #272c49 !important;
+        }
+        div.record-picker{
+            border: 1px solid #252d4a !important;
+        }
+        .record-picker li:hover {
+            background-color: #272d49 !important;
+        }
+        .record-picker li.selected {
+            background-color: #191f48 !important;
+        }
+        .ngx-material-timepicker-toggle span svg{
+            fill: #fff !important;
+        }
+        .ngx-timepicker-control__arrow,
+        .period-control__arrow{
+            color: #fff !important;
+        }
+        
+        .iti input, 
+        .iti input[type=text], 
+        .iti input[type=tel]{
+            border: none;
+        }
+        
+        .ng-dropdown-panel .ng-dropdown-panel-items .ng-optgroup {
+            color: rgb(255 255 255 / 64%) !important;
+            cursor: not-allowed;
+            touch-action: none;
+            background: #272c4c !important;
+        }
+    }
+  }
+}

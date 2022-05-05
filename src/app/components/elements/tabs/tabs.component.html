@@ -1,0 +1,382 @@
+
+						<!--Page header-->
+						<div class="page-header">
+							<div class="page-leftheader">
+								<h4 class="page-title">Tabs</h4>
+							</div>
+							<div class="page-rightheader ms-auto d-lg-flex d-none">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="javascript:void(0)" class="d-flex"><svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z"/><path d="M7 10.19V18h2v-6h6v6h2v-7.81l-5-4.5z" opacity=".3"/></svg><span class="breadcrumb-icon"> Home</span></a></li>
+									<li class="breadcrumb-item"><a href="javascript:void(0)">Elements</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Tags</li>
+								</ol>
+							</div>
+						</div>
+						<!--End Page header-->
+
+						<!-- Row -->
+						<div class="row">
+							<div class="col-md-12">
+								<div class="card">
+									<div class="card-header">
+										<h3 class="card-title">Tabs style</h3>
+									</div>
+									<div class="card-body p-6">
+										<div class="panel panel-primary">
+											<div class="tab-menu-heading">
+												<div class="tabs-menu">
+													<!-- Tabs -->
+													<ul ngbNav #nav1="ngbNav" [(activeId)]="TabStyle1" class="panel-tabs">
+														<li [ngbNavItem]="1"><a ngbNavLink>Tab 1</a>
+															<ng-template ngbNavContent>
+																<p>page editors now use Lorem Ipsum as their default model text, and a search
+																	for 'lorem
+																	ipsum' will uncover many web sites still in their infancy. Various versions
+																	have
+																	evolved over the years, sometimes by accident, sometimes on purpose
+																	(injected humour
+																	and the like</p>
+																<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+																	eirmod
+																	tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+																	At vero
+																	eos et</p>
+															</ng-template>
+														</li>
+														<li [ngbNavItem]="2"><a ngbNavLink>Tab 2</a>
+															<ng-template ngbNavContent>
+																<p> default model text, and a search for 'lorem ipsum' will uncover many web
+																	sites still
+																	in their infancy. Various versions have evolved over the years, sometimes by
+																	accident, sometimes on purpose (injected humour and the like</p>
+																<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+																	eirmod
+																	tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+																	At vero
+																	eos et</p>
+															</ng-template>
+														</li>
+														<li [ngbNavItem]="3"><a ngbNavLink>Tab 3</a>
+															<ng-template ngbNavContent>
+																<p>over the years, sometimes by accident, sometimes on purpose (injected humour
+																	and the
+																	like</p>
+																<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+																	eirmod
+																	tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+																	At vero
+																	eos et</p>
+															</ng-template>
+														</li>
+														<li [ngbNavItem]="4"><a ngbNavLink>Tab 4</a>
+															<ng-template ngbNavContent>
+																<p>page editors now use Lorem Ipsum as their default model text, and a search
+																	for 'lorem
+																	ipsum' will uncover many web sites still in their infancy. Various versions
+																	have
+																	evolved over the years, sometimes by accident, sometimes on purpose
+																	(injected humour
+																	and the like</p>
+																<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+																	eirmod
+																	tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+																	At vero
+																	eos et</p>
+															</ng-template>
+														</li>
+													</ul>
+												</div>
+											</div>
+										<div [ngbNavOutlet]="nav1" class="tabs-menu-body"></div>
+										</div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<h3 class="card-title">Tabs Style 2</h3>
+									</div>
+									<div class="card-body p-6">
+										<div class="panel panel-primary">
+											<div class="tab-menu-heading p-0 bg-light">
+												<div class="tabs-menu1 ">
+													<!-- Tabs -->
+													<ul ngbNav #nav2="ngbNav" [(activeId)]="TabStyle2" class="panel-tabs">
+														<li [ngbNavItem]="1" class=""><a ngbNavLink>Tab 1</a>
+															<ng-template ngbNavContent>
+																<p>page editors now use Lorem Ipsum as their default model text, and a search
+																	for 'lorem
+																	ipsum' will uncover many web sites still in their infancy. Various versions
+																	have
+																	evolved over the years, sometimes by accident, sometimes on purpose
+																	(injected humour
+																	and the like</p>
+																<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+																	eirmod
+																	tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+																	At vero
+																	eos et</p>
+															</ng-template>
+														</li>
+														<li [ngbNavItem]="2"><a ngbNavLink>Tab 2</a>
+															<ng-template ngbNavContent>
+																<p> default model text, and a search for 'lorem ipsum' will uncover many web
+																	sites still
+																	in their infancy. Various versions have evolved over the years, sometimes by
+																	accident, sometimes on purpose (injected humour and the like</p>
+																<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+																	eirmod
+																	tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+																	At vero
+																	eos et</p>
+															</ng-template>
+														</li>
+														<li [ngbNavItem]="3"><a ngbNavLink>Tab 3</a>
+															<ng-template ngbNavContent>
+																<p>over the years, sometimes by accident, sometimes on purpose (injected humour
+																	and the
+																	like</p>
+																<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+																	eirmod
+																	tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+																	At vero
+																	eos et</p>
+															</ng-template>
+														</li>
+														<li [ngbNavItem]="4"><a ngbNavLink>Tab 4</a>
+															<ng-template ngbNavContent>
+																<p>page editors now use Lorem Ipsum as their default model text, and a search
+																	for 'lorem
+																	ipsum' will uncover many web sites still in their infancy. Various versions
+																	have
+																	evolved over the years, sometimes by accident, sometimes on purpose
+																	(injected humour
+																	and the like</p>
+																<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+																	eirmod
+																	tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+																	At vero
+																	eos et</p>
+															</ng-template>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<div [ngbNavOutlet]="nav2" class="tabs-menu-body"></div>
+										</div>
+									</div>
+								</div>
+
+								<!-- div -->
+								<div class="card" id="tabs-style3">
+									<div class="card-header">
+										<div class="card-title">
+											Tab Style3
+										</div>
+									</div>
+									<div class="card-body">
+										<div class="panel panel-primary tabs-style-3">
+											<div class="tab-menu-heading">
+												<div class="tabs-menu ">
+													<!-- Tabs -->
+													<ul ngbNav #nav3="ngbNav" [(activeId)]="TabStyle3" class="nav">
+														<li [ngbNavItem]="1"><a ngbNavLink><i class="fe fe-airplay mr-1"></i> Tab Style 01</a>
+															<ng-template ngbNavContent>
+																<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+																	voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
+																	occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt
+																	mollitia animi, id est laborum et dolorum fuga.</p>
+																<p class="mb-0">Et harum quidem rerum facilis est et expedita distinctio. Nam libero
+																	tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
+																	maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor
+																	repellendus. </p>
+															</ng-template>
+														</li>
+														<li [ngbNavItem]="2"><a ngbNavLink><i class="fe fe-package mr-1"></i> Tab Style 02</a>
+															<ng-template ngbNavContent>
+																<p> Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum
+																	soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
+																	placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. </p>
+																<p class="mb-0">At vero eos et accusamus et iusto odio dignissimos ducimus qui
+																	blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
+																	molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+																	qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+															</ng-template>
+														</li>
+														<li [ngbNavItem]="3"><a ngbNavLink><i class="fe fe-settings mr-1"></i> Tab Style 03</a>
+															<ng-template ngbNavContent>
+																<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
+																	eveniet ut et voluptates repudiandae sint et molestiae non recusandae</p>
+																<p class="mb-0">Et harum quidem rerum facilis est et expedita distinctio. Nam libero
+																	tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
+																	maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor
+																	repellendus. </p>
+															</ng-template>
+														</li>
+														<li [ngbNavItem]="4"><a ngbNavLink><i class="fe fe-database mr-1"></i> Tab Style 04</a>
+															<ng-template ngbNavContent>
+																<p>On the other hand, we denounce with righteous indignation and dislike men who are so
+																	beguiled and demoralized by the charms of pleasure of the moment, so blinded by
+																	desire</p>
+																<p class="mb-0">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+																	impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda
+																	est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut
+																	rerum necessitatibus </p>
+															</ng-template>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<div [ngbNavOutlet]="nav3" class="tabs-menu-body"></div>
+										</div>
+									</div>
+								</div>
+								<!-- /div -->
+								<!-- div -->
+								<div class="card" id="tabs-style4">
+									<div class="card-header">
+										<div class="card-title">
+											Vertical Tabs
+										</div>
+									</div>
+									<div class="card-body">
+										<div class="d-md-flex">
+											<div class="border border-right-0 br-tl-7 br-bl-7">
+												<div class="panel panel-primary tabs-style-4">
+													<div class="tab-menu-heading border-top-0 border-bottom-0 border-left-0 br-tr-0">
+														<div class="tabs-menu ">
+															<!-- Tabs -->
+															<ul ngbNav #nav4="ngbNav" [(activeId)]="TabStyle4" class="nav">
+																<li [ngbNavItem]="1"><a ngbNavLink ><i class="fe fe-airplay mr-1"></i> Tab Style 01</a>
+																<ng-template ngbNavContent>
+																	<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+																		praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
+																		excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
+																		officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+																	<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+																		praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
+																		excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
+																		officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+																	<p class="mb-0">Et harum quidem rerum facilis est et expedita distinctio. Nam libero
+																		tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id
+																		quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor
+																		repellendus. </p>
+																</ng-template>
+																</li>
+																<li [ngbNavItem]="2"><a ngbNavLink ><i class="fe fe-package mr-1"></i> Tab Style 02</a>
+																<ng-template ngbNavContent>
+																	<p> Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore,
+																		cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
+																		maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor
+																		repellendus. </p>
+																	<p> Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore,
+																		cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
+																		maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor
+																		repellendus. </p>
+																	<p class="mb-0">At vero eos et accusamus et iusto odio dignissimos ducimus qui
+																		blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
+																		molestias excepturi sint occaecati cupiditate non provident, similique sunt in
+																		culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+																</ng-template>
+																</li>
+																<li [ngbNavItem]="3"><a ngbNavLink ><i class="fe fe-settings mr-1"></i> Tab Style 03</a>
+																<ng-template ngbNavContent>
+																	<p> Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore,
+																		cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
+																		maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor
+																		repellendus. </p>
+																	<p> But I must explain to you how all this mistaken idea of denouncing pleasure and
+																		praising pain was born and I will give you a complete account of the system, and
+																		expound the actual teachings of the great explorer of the truth, the
+																		master-builder of human happiness. </p>
+																	<p class="mb-0">At vero eos et accusamus et iusto odio dignissimos ducimus qui
+																		blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
+																		molestias excepturi sint occaecati cupiditate non provident, similique sunt in
+																		culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+																</ng-template>
+																</li>
+																<li [ngbNavItem]="4"><a ngbNavLink ><i class="fe fe-database mr-1"></i> Tab Style 04</a>
+																<ng-template ngbNavContent>
+																	<p>On the other hand, we denounce with righteous indignation and dislike men who are
+																		so beguiled and demoralized by the charms of pleasure of the moment, so blinded
+																		by desire quod maxime placeat facere possimus, omnis voluptas assumenda est,
+																		omnis dolor repellendus.</p>
+																	<p>On the other hand, we denounce with righteous indignation and dislike men who are
+																		so beguiled and demoralized by the charms of pleasure of the moment, so blinded
+																		by desire quod maxime placeat facere possimus, omnis voluptas assumenda est,
+																		omnis dolor repellendus.</p>
+																	<p class="mb-0">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+																		impedit quo minus id quod maxime placeat facere possimus, omnis voluptas
+																		assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut
+																		officiis debitis aut rerum necessitatibus </p>
+																</ng-template>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div [ngbNavOutlet]="nav4" class="tabs-menu-body"></div>
+										</div>
+									</div>
+								</div>
+								<!-- /div -->
+
+								<div class="card">
+									<div class="card-header">
+										<h3 class="card-title">Tabs Style 5</h3>
+									</div>
+									<div class="card-body p-6">
+										<div class="panel panel-primary">
+											<div class="tab_wrapper first_tab tabs-pills">
+												<ul ngbNav #nav5="ngbNav" [(activeId)]="TabStyle5" class="tab_list">
+													<li [ngbNavItem]="1"><a ngbNavLink >Tab 1</a>
+													<ng-template ngbNavContent>
+														<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to
+															using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web
+															sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like) It is a long established fact that a reader will be distracted by the readable
+															content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+															Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years,
+															sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+													</ng-template>
+													</li>
+													<li [ngbNavItem]="2"><a ngbNavLink >Tab 2</a>
+													<ng-template ngbNavContent>
+														<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in
+															Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections
+															1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum,
+															"Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years
+															old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature,
+															discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics,
+															very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+													</ng-template>
+													</li>
+													<li [ngbNavItem]="3"><a ngbNavLink >Tab 3</a>
+													<ng-template ngbNavContent>
+														<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage
+															of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator
+															on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition,
+															injected humour, or non-characteristic words etc. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look
+															even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined
+															chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The
+															generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+													</ng-template>
+													</li>
+													<li [ngbNavItem]="4"><a ngbNavLink >Tab 4</a>
+													<ng-template ngbNavContent>
+														<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+															specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+															passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+															standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+															essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+														</p>
+													</ng-template>
+													</li>
+												</ul>
+											</div>
+										</div>
+										<div [ngbNavOutlet]="nav5" class="tabs-menu-body"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- End Row -->

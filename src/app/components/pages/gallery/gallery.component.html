@@ -1,0 +1,35 @@
+
+<!--Page header-->
+<div class="page-header">
+	<div class="page-leftheader">
+		<h4 class="page-title">Gallery</h4>
+	</div>
+	<div class="page-rightheader ms-auto d-lg-flex d-none">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="javascript:void(0)" class="d-flex"><svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z"/><path d="M7 10.19V18h2v-6h6v6h2v-7.81l-5-4.5z" opacity=".3"/></svg><span class="breadcrumb-icon"> Home</span></a></li>
+			<li class="breadcrumb-item"><a href="javascript:void(0)">Pages</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Gallery</li>
+		</ol>
+	</div>
+</div>
+<!--End Page header-->
+<div class="row row-sm">
+	<div class="col-lg-12 col-md-12">
+		<div class="card custom-card">
+			<div class="card-body">
+				<ul id="lightgallery" class="list-unstyled row mb-0">
+					<li class="col-xs-6 col-sm-4 col-md-4 col-xl-4 mb-3" *ngFor="let img of GalleryImage">
+						<a href="javascript:void(0)" class="wd-100p">
+							<img class="img-responsive" [src]="img.modal.img" alt="Thumb"
+								(click)="openImageModalRowDescription(img)">
+						</a>
+					</li>
+				</ul>
+			</div>
+			<ks-modal-gallery [id]="1" [modalImages]="GalleryImage"
+				[plainGalleryConfig]="customPlainGalleryRowDescConfig" [currentImageConfig]="{downloadable : true}"
+				[buttonsConfig]="buttonsConfigCustom">
+			</ks-modal-gallery>
+		</div>
+	</div>
+</div>

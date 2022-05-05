@@ -1,0 +1,92 @@
+::ng-deep{
+    .datatable-body{
+        height: 600px !important;
+        overflow: scroll;
+        width: 100%;
+    }
+
+    .dataTable-bottom{
+        position: absolute;
+        left:0;
+        right:0;
+        bottom: 0;
+        background: #fff !important;
+    }
+    .dataTable-sorter::before, .dataTable-sorter::after{
+        right: -10px !important;
+    }
+    
+    table th, table td ,
+    .ngx-datatable.material .datatable-header .datatable-header-cell,
+    .ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-cell{
+        font-size: 0.876rem !important;
+    }
+
+    .ngx-datatable .datatable-footer .datatable-footer-inner{
+        flex-wrap: wrap;
+        height: auto !important;
+    }
+    
+    .dataTable-wrapper.no-footer .dataTable-container{
+        border-bottom: none !important;
+    }
+    .dataTable-selector{
+        border-radius: 0.25rem;
+    }
+    app-data-tables{
+        input{
+            border-radius: 25px;
+            border: 1px solid rgba($color: #000000, $alpha: 0.1);
+        }
+    }
+}
+::ng-deep{
+    .dark-mode{
+        .ngx-datatable.material{
+            background-color: #10163a !important;
+        }
+        .dataTable-bottom{
+            background-color: #10163a !important;
+        }
+        .dataTable-selector{
+            background-color: #10163a;
+            border-color:#272c49;
+            color: #fff;
+            outline: none;
+        }
+        input {
+            color: #eee !important;
+            background-color: #10163a !important;
+            border-color: #262b48;
+            border-radius: 25px;
+        }
+
+        li.active a{
+            color: #10163a;
+        }
+
+        .ngx-datatable.material .datatable-header .datatable-header-cell,
+        .ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-cell{
+            background-color: #10163a;
+            color: #fff;
+        }
+        .ngx-datatable.material .datatable-footer {
+            border-top: 1px solid rgb(39 43 74) !important;
+            color: rgb(255 255 255) !important;
+            background: #10163a !important;
+        }
+        .ngx-datatable.material .datatable-footer .datatable-pager li.disabled a {
+            color: #fff !important;
+            background-color: transparent !important;
+        }
+        .ngx-datatable.material .datatable-footer .datatable-pager li.active a {
+            background-color: rgb(207 208 216) !important;
+        }
+        .ngx-datatable.material .datatable-footer .datatable-pager a{
+            color: #fff !important;
+        }
+        .ngx-datatable.material .datatable-header {
+            border-bottom: 1px solid rgb(39 45 75) !important;
+        }
+    }
+}

@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-header">
+        <h2 class="card-title">Task List Using Firebase</h2>
+    </div>
+
+    <div class="card-body">
+        <div class="input-group">
+            <input type="text" class="form-control" #Task placeholder="Task">
+            <div class="input-group-addon hover-cursor" (click)="AddTask(Task)">
+                <i class="fa fa-plus-circle fa-2x"></i>
+            </div>
+        </div>
+        <div class="taskList">
+            <div style="margin:5px 0px">
+                <ul class="list-group">
+                <li class="list-group-item" *ngFor="let task of taskListArray">
+                    <span class="hover-cursor" [class.text-success]="task.isChecked" (click)="CheckTask(task.key,task.isChecked)">
+                    <i class="fa fa-lg" [ngClass]="task.isChecked?'fa-check-circle-o':'fa-circle-thin'"></i>
+                    </span>
+                    {{task.name}}
+                    <span class="hover-cursor text-danger pull-right" (click)="DeleteTask(task.key)">
+                    <i class="fa fa-trash-o text-danger"></i>
+                    </span>
+                </li>
+                </ul>
+            </div>
+        </div>
+   </div>
+</div>

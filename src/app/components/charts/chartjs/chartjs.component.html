@@ -1,0 +1,207 @@
+<!--Page header-->
+<div class="page-header">
+	<div class="page-leftheader">
+		<h4 class="page-title">Chartjs Charts</h4>
+	</div>
+	<div class="page-rightheader ms-auto d-lg-flex d-none">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="javascript:void(0)" class="d-flex"><svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z"/><path d="M7 10.19V18h2v-6h6v6h2v-7.81l-5-4.5z" opacity=".3"/></svg><span class="breadcrumb-icon"> Home</span></a></li>
+			<li class="breadcrumb-item"><a href="javascript:void(0)">Charts</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Chartjs Charts</li>
+		</ol>
+	</div>
+</div>
+<!--End Page header-->
+
+<!-- row -->
+<div class="row row-sm">
+    <div class="col-sm-12 col-md-6">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-5">
+                    Line Chart
+                </div>
+                <p class="mg-b-20">Basic Charts Of Valex template.</p>
+                <div class="chartjs-wrapper-demo">
+                    <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                        [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div><!-- col-6 -->
+    <div class="col-sm-12 col-md-6">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-5">
+                    Area Chart
+                </div>
+                <p class="mg-b-20">Basic Charts Of Valex template.</p>
+                <div class="chartjs-wrapper-demo">
+                    <!-- <canvas baseChart [datasets]="AreaChartData" [labels]="AreaChartLabels" [options]="AreaChartOptions"
+                        [colors]="AreaChartColors" [chartType]="AreaChartType">
+                    </canvas> -->
+                    <canvas id=Canvas #myCanvas></canvas>
+                </div>
+            </div>
+        </div>
+    </div><!-- col-6 -->
+</div>
+<!-- /row -->
+
+<!-- row -->
+<div class="row row-sm">
+    <div class="col-sm-12 col-md-6">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-5">
+                    Stacked Bar Chart
+                </div>
+                <p class="mg-b-20">Basic Charts Of Valex template.</p>
+                <div class="chartjs-wrapper-demo">
+
+                    <canvas baseChart [datasets]="barChart2Data" [labels]="barChart2Labels" [options]="barChart2Options"
+                        [legend]="barChart2Legend" [chartType]="barChart2Type" [colors]="barchart2Colors">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div><!-- col-6 -->
+    <div class="col-sm-12 col-md-6">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-5">
+                    Stacked Bar Horizontal Chart
+                </div>
+                <p class="mg-b-20">Basic Charts Of Valex template.</p>
+                <div class="chartjs-wrapper-demo">
+                    <!-- <canvas id="chartStacked2"></canvas> -->
+                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                        [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType"
+                        [colors]="barChartColors">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div><!-- col-6 -->
+</div>
+<!-- /row -->
+
+
+<!-- row -->
+<div class="row row-sm">
+    <div class="col-md-12">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="row row-sm">
+                    <div class="col-sm-12 col-md-6 col-xl-4">
+                        <div class="main-content-label tx-12 mg-b-15">
+                            Solid Color
+                        </div>
+                        <div class="ht-200 ht-lg-250">
+                           <canvas baseChart [datasets]="solidColorData" [labels]="solidColorLabels" [options]="solidColorOptions"
+                             [legend]="solidColorLegend" [chartType]="solidColorType" [colors]="solidColorColors">
+                            </canvas>
+                        </div>
+                    </div><!-- col-6 -->
+                    <div class="col-sm-12 col-md-6 col-xl-4 mg-t-20 mg-md-t-0">
+                        <div class="main-content-label tx-12 mg-b-15">
+                            With Transparency
+                        </div>
+                        <div class="ht-200 ht-lg-250">
+                            <canvas baseChart [datasets]="solidColorData" [labels]="solidColorLabels" [options]="solidColorOptions"
+                              [chartType]="solidColorType" [colors]="transparentColors">
+                            </canvas>
+                        </div>
+                    </div><!-- col-6 -->
+                    <div class="col-sm-12 col-md-6 col-xl-4 mg-t-20 mg-xl-t-0">
+                        <div class="main-content-label tx-12 mg-b-15">
+                            Using Gradient Color
+                        </div>
+                        <div class="ht-200 ht-lg-250">
+                            <!-- <canvas baseChart [datasets]="solidColorData" [labels]="solidColorLabels" [options]="solidColorOptions"
+                              [chartType]="solidColorType" [colors]="gradientColors">
+                            </canvas> -->
+                            <canvas id=Canvas #Canvas></canvas>
+                        </div>
+                    </div><!-- col-6 -->
+                </div>
+            </div><!-- col-12 -->
+        </div><!-- col-12 -->
+    </div><!-- col-12 -->
+</div>
+<!-- /row -->
+
+<!-- row -->
+<div class="row row-sm">
+    <div class="col-sm-12 col-md-6">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-5">
+                    Horizontal Bar Chart 1
+                </div>
+                <p class="mg-b-20">Basic Charts Of Valex template.</p>
+                <div class="chartjs-wrapper-demo">
+                    <canvas baseChart [datasets]="horizantalBarData" [labels]="horizantalBarLabels" [options]="horizantalBarOptions"
+                              [chartType]="horizantalBarType" [colors]="horizantalBarColors">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div><!-- col-6 -->
+    <div class="col-sm-12 col-md-6">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-5">
+                    Horizontal Bar Chart 2
+                </div>
+                <p class="mg-b-20">Basic Charts Of Valex template.</p>
+                <div class="chartjs-wrapper-demo">
+                    <canvas baseChart [datasets]="horizantal2BarData" [labels]="horizantal2BarLabels" [options]="horizantal2BarOptions" [legend]="horizantal2BarLegend"
+                              [chartType]="horizantal2BarType" [colors]="horizantal2BarColors">
+                    </canvas>
+                    
+                </div>
+            </div>
+        </div>
+    </div><!-- col-6 -->
+</div>
+<!-- /row -->
+
+<!-- row -->
+<div class="row row-sm">
+    <div class="col-sm-12 col-md-6">
+        <div class="card mg-b-md-20 overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-5">
+                    Pie Chart
+                </div>
+                <p class="mg-b-20">Basic Charts Of Valex template.</p>
+                <div class="chartjs-wrapper-demo">
+                    <!-- <canvas id="chartPie"></canvas> -->
+                    <canvas baseChart [datasets]="PieChartData" [labels]="PieChartLabels" [options]="PieChartOptions"
+                    [chartType]="DoughnutChartType">
+                    </canvas>
+                    
+                </div>
+            </div>
+        </div>
+    </div><!-- col-6 -->
+    <div class="col-sm-12 col-md-6">
+        <div class="card overflow-hidden">
+            <div class="card-body">
+                <div class="main-content-label mg-b-5">
+                    Donut Chart
+                </div>
+                <p class="mg-b-20">Basic Charts Of Valex template.</p>
+                <div class="chartjs-wrapper-demo">
+                    <!-- <canvas id="chartDonut"></canvas> -->
+                  
+                    <canvas baseChart [datasets]="PieChartData" [labels]="PieChartLabels" [options]="PieChartOptions"
+                        [chartType]="PieChartType">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div><!-- col-6 -->
+</div>

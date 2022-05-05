@@ -1,0 +1,18 @@
+.dropdown{
+    display: inline-flex;
+    margin-right: 0.5rem;
+}
+::ng-deep{
+    .boxed{
+        app-dropdown{
+            .dropdown-menu{
+                left: 0 !important;
+                right: initial !important;
+            }
+        }
+    }
+}
+
+.dropup .dropdown-toggle::after{
+    display: inline-block !important;
+}

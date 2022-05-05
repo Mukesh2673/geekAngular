@@ -1,0 +1,14 @@
+::ng-deep{
+    app-alerts{
+        .close{
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-weight: 500;
+            
+        }
+    }
+    .popover{
+        width: 200px !important;
+    }
+}

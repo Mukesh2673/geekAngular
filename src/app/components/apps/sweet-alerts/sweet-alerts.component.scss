@@ -1,0 +1,42 @@
+::ng-deep{
+    .swal2-title {
+        margin: 0 0 5px 0;
+        padding: 20px 0 0 0;
+        color: #334151;
+        font-size: 23px;
+        font-weight: 500;
+    }
+    .swal2-styled:focus{
+        box-shadow: none;
+    }
+    .swal2-confirm.swal2-styled,
+    .swal2-deny.swal2-styled,
+    .swal2-cancel.swal2-styled {
+        border: 1px solid transparent;
+        border-radius: 0;
+        color: #fff;
+        font-size: 0.875em;
+    }
+
+    .swal2-content {
+        color: #99a6b7;
+        font-size: 16px;
+        font-weight: 300;
+    }
+    .swal2-timer-progress-bar {
+        background: #0162e8;
+    }
+  .dark-mode{
+
+    .swal2-popup{
+        background-color: #10163a !important;
+        h2{
+            color: #fff !important;
+        }        
+    }
+
+    .swal2-html-container{
+        color: #ddd !important;
+    }
+  }
+}

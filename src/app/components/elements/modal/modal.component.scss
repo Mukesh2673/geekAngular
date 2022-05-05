@@ -1,0 +1,15 @@
+.close{
+    position: absolute;
+    right: 12px;
+    top: 0px;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+::ng-deep{
+    .dark-mode{
+        .close{
+            color: #ccc !important;
+        }
+    }
+}

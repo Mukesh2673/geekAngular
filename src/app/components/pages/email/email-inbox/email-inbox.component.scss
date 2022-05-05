@@ -1,0 +1,13 @@
+.dropdown{
+    display: inline-flex !important;
+}
+::ng-deep{
+    .boxed{
+        app-email-inbox{
+            .dropdown-menu{
+                left: 0 !important;
+                right: initial !important;
+            }
+        }
+    }
+}

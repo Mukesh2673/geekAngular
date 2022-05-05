@@ -1,0 +1,143 @@
+
+						<!--Page header-->
+						<div class="page-header">
+							<div class="page-leftheader">
+								<h4 class="page-title">Pagination</h4>
+							</div>
+							<div class="page-rightheader ms-auto d-lg-flex d-none">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="javascript:void(0)" class="d-flex"><svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z"/><path d="M7 10.19V18h2v-6h6v6h2v-7.81l-5-4.5z" opacity=".3"/></svg><span class="breadcrumb-icon"> Home</span></a></li>
+									<li class="breadcrumb-item"><a href="javascript:void(0)">Elements</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Pagination</li>
+								</ol>
+							</div>
+						</div>
+						<!--End Page header-->
+
+						<!-- Row -->
+						<div class="row">
+							<div class="col-md-12 col-lg-6">
+								<div class="card">
+									<div class="card-header">
+										<h3 class="card-title">Basic pagination</h3>
+									</div>
+									<div class="card-body">
+										<div class="pagination-wrapper">
+											<ngb-pagination [collectionSize]="70" [(page)]="basicPage" aria-label="Default pagination"></ngb-pagination>
+										</div>
+										<!-- pagination-wrapper -->
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 col-lg-6">
+								<div class="card">
+									<div class="card-header">
+										<h3 class="card-title">Basic pagination</h3>
+									</div>
+									<div class="card-body">
+										<ul class="pagination ">
+											<ngb-pagination [collectionSize]="70" [(page)]="alphabetpage" aria-label="Custom pagination">
+												<ng-template ngbPaginationPrevious>Prev</ng-template>
+												<ng-template ngbPaginationNext>Next</ng-template>
+												<!-- <ng-template ngbPaginationNumber let-p>{{ getPageSymbol(p) }}</ng-template> -->
+											</ngb-pagination>
+										</ul>
+										<!-- pagination-wrapper -->
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- End Row -->
+
+						<!-- Row -->
+						<div class="row">
+							<div class="col-md-12 col-lg-6">
+								<div class="card">
+									<div class="card-header">
+										<h3 class="card-title">Model Pagination</h3>
+									</div>
+									<div class="card-body ">
+										<ul class="pagination mg-b-0 page-0 ">
+											<ngb-pagination [collectionSize]="50" [(page)]="currentPage"></ngb-pagination>
+										</ul>
+									</div>
+									<!-- pagination-wrapper -->
+								</div>
+								<!-- section-wrapper -->
+							</div>
+							<div class="col-md-12 col-lg-6">
+								<div class="card">
+									<div class="card-header">
+										<h3 class="card-title">Model Pagination2</h3>
+									</div>
+									<div class="card-body">
+										<ngb-pagination [collectionSize]="120" [(page)]="advPage" [maxSize]="5" [boundaryLinks]="true">
+										</ngb-pagination>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- End Row -->
+
+						<!-- Row -->
+						<div class="row">
+							<div class="col-md-12 col-lg-6">
+								<div class="card">
+									<div class="card-header">
+										<h3 class="card-title">Model Pagination2</h3>
+									</div>
+									<div class="card-body">
+										<nav aria-label="Page navigation example">
+											<ul class="pagination">
+												
+												<ngb-pagination [collectionSize]="50" [(page)]="currentPageSm" size="sm"></ngb-pagination>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 col-lg-6">
+								<div class="card">
+									<div class="card-header">
+										<h3 class="card-title">Pagination left alignment</h3>
+									</div>
+									<div class="card-body">
+										<nav aria-label="Page navigation example">
+											<ul class="pagination ">
+												
+												<ngb-pagination [collectionSize]="50" [(page)]="currentPageS"></ngb-pagination>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 col-lg-6">
+								<div class="card">
+									<div class="card-header">
+										<h3 class="card-title">Pagination center alignment</h3>
+									</div>
+									<div class="card-body">
+										<nav aria-label="Page navigation example">
+											<ul class="pagination justify-content-center">
+												<ngb-pagination [collectionSize]="50" [(page)]="currentPageC"></ngb-pagination>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 col-lg-6">
+								<div class="card">
+									<div class="card-header">
+										<h3 class="card-title">Pagination Right Alignment</h3>
+									</div>
+									<div class="card-body ">
+										<nav aria-label="Page navigation example">
+											<ul class="pagination justify-content-end">
+												<ngb-pagination [collectionSize]="50" [(page)]="currentPageE"></ngb-pagination>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- End  Row -->

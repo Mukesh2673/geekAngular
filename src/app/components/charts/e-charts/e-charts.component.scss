@@ -1,0 +1,17 @@
+::ng-deep{
+   .dark-mode{
+    app-e-charts{
+        .ht-300 div,
+        .ht-400 div{
+            background-color: rgb(16 22 58) !important;
+            border-color: rgb(38 44 73) !important;
+        }
+    }
+   }
+   
+   .ht-300 > div,
+   .ht-400 > div
+   {
+    z-index: 8 !important;
+    }
+}
