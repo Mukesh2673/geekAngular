@@ -4,7 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { ApiService } from './../../services/api.service'
+import { ApiService } from './../../services/api.service';
+import { MustMatch } from '../../shared/validations/passwordValidator';
 
 @Component({
   selector: 'app-register',
@@ -13,10 +14,11 @@ import { ApiService } from './../../services/api.service'
 })
 export class RegisterComponent implements OnInit {
 
-  email = "";
-  password = "";
-  firstName = "";
-  lastName = "";
+  //email = "";
+  //password = "";
+  //cPassword="";
+  //firstName = "";
+  //lastName = "";
   message = '';
   errorMessage = ''; // validation error handle
   error: { name: string, message: string } = { name: '', message: '' }; // for firbase error handle
@@ -74,7 +76,21 @@ export class RegisterComponent implements OnInit {
           Validators.maxLength(100),
         ]),
       ],
-    });
+      cPassword: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(100),
+        ]),
+      ],
+      agree: [false, Validators.compose([Validators.required])],
+    },
+    {
+      validator: MustMatch('password','cPassword'),
+      //validator: ConfirmPasswordValidator.MatchPassword,
+    }
+    );
 
   }
 
@@ -102,7 +118,7 @@ export class RegisterComponent implements OnInit {
       lastName:this.form.lastName.value,
       email: this.form.email.value,
       password: this.form.password.value,
-      role:'Admin'
+      //role:'Admin'
     };
     this.apiService.postData("auth/register", data).subscribe(
       (result: any) => {   
