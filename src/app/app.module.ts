@@ -21,6 +21,7 @@ import { RegisterComponent } from './authentication/register/register.component'
 // import { UserListComponent } from './modules/user-list/user-list.component';
 // import { AddUserComponent } from './modules/add-user/add-user.component';
 import { UsersModule } from './modules/users/users.module';
+import { ProfileModule } from './modules/profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { UsersModule } from './modules/users/users.module';
     FormsModule, ReactiveFormsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
-    UsersModule
+    UsersModule,
+    ProfileModule
   ],
   providers: [],
   bootstrap: [AppComponent],

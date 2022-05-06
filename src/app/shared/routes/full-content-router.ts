@@ -96,5 +96,10 @@ export const full_content: Routes = [
   {
     path: 'users',
     loadChildren: () => import('../../modules/users/users.module').then(m => m.UsersModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('../../modules/profile/profile.module').then(m => m.ProfileModule)
   }
+  
 ]
