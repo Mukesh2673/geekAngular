@@ -9,6 +9,8 @@
 @import "assets/css/dark.scss";
 @import "assets/css/skins.css";
 
+
+
 // boxed
 @import "assets/css/boxed.css";
 @import "assets/css/dark-boxed.css";
@@ -53,6 +55,9 @@
 
 @import "./assets/css/sidemenu.css";
 
+
+/* Custom css file */
+@import "assets/css/custom.css";
 
 ng-select{
     padding: 0 !important;
