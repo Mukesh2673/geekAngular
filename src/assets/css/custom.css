@@ -75,17 +75,30 @@ h2.font-weight-bold, h2.text-center, .page-title, h4.card-title, h3.card-title {
 .header .form-inline input.form-control.header-search {
     background: #fff;
 }
-.badge.bg-danger {
+.badge.bg-danger, .btn-primary:hover {
     background-color: #ef4035 !important;
 }
-span.badge.bg-primary, .light-mode .app-sidebar .dropdown-menu {
+.btn-primary:hover, button.btn.btn-lg.btn-primary.btn-block:hover {
+    background-color: #ef4035 !important;
+    border-color: #ef4035 !important;
+}
+span.badge.bg-primary, .light-mode .app-sidebar .dropdown-menu,
+.md-drppicker .ranges ul li button.active, .md-drppicker td.active, .md-drppicker td.active:hover,
+.md-drppicker .btn, .md-drppicker .btn:focus, .md-drppicker .btn:hover {
     background-color: #0f034e !important;
+    color: #fff;
+}
+.md-drppicker .btn:hover {
+    color: #fff !important;
+}
+button.btn.btn-default.clear {
+    margin-right: 10px;
 }
 .header-notify .pulse, .icon  span.pulse {
     background: #ef4035;
     box-shadow: 0 0 0 rgb(239 64 53 / 90%);
 }
-.btn.btn-primary {
+.btn.btn-primary, .btn.btn-primary.disabled, .btn.btn-primary:disabled {
     background-color: #0f034e;
     border-color: #0f034e;
 }
@@ -100,6 +113,14 @@ span.badge.bg-primary, .light-mode .app-sidebar .dropdown-menu {
     box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(239 64 53 / 60%) !important;
     -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(239 64 53 / 60%) !important;
 }
+a.dropdown-item {
+    cursor: pointer;
+}
+.title-style h1 {
+    color: #333;
+}
+
+
 
 /* Media Query start */
 
@@ -110,6 +131,9 @@ span.badge.bg-primary, .light-mode .app-sidebar .dropdown-menu {
 .app-sidebar.app-sidebar2 {
     height: 175px;
     transition: 0.5s all ease-in-out;
+}
+.sidenav-toggled1 aside.app-sidebar.app-sidebar3 {
+    top: 175px;
 }
 .sidenav-toggled .app-sidebar.app-sidebar2 {
     height: 75px;
