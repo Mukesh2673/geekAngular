@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from './../../services/api.service';
 import { MustMatch } from '../../shared/validations/passwordValidator';
@@ -14,11 +14,7 @@ import { MustMatch } from '../../shared/validations/passwordValidator';
 })
 export class RegisterComponent implements OnInit {
 
-  //email = "";
-  //password = "";
-  //cPassword="";
-  //firstName = "";
-  //lastName = "";
+  closeResult = '';
   message = '';
   errorMessage = ''; // validation error handle
   error: { name: string, message: string } = { name: '', message: '' }; // for firbase error handle
@@ -166,6 +162,26 @@ export class RegisterComponent implements OnInit {
 
   UserModal(userForm: any) {
     this.modalService.open(userForm, { scrollable: true, size: 'lg' });
+  }
+
+  open(content) {
+    this.modalService.open(content, { scrollable: true, size: 'lg'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+      alert("yes")
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      alert("no")
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 
 }

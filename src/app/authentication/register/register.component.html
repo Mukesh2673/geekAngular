@@ -27,18 +27,13 @@
                                                             <path
                                                                 d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4zm-6 4c.22-.72 3.31-2 6-2 2.7 0 5.8 1.29 6 2H6zm6-6c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z" />
                                                         </svg></span>
-                                                    <input type="text" 
-                                                    name="firstName" 
-                                                    class="form-control"
-                                                    autocomplete="off"
-                                                        placeholder="Enter First Name" 
-                                                        required
+                                                    <input type="text" name="firstName" class="form-control"
+                                                        autocomplete="off" placeholder="Enter First Name" required
                                                         [ngClass]="{
                                                             'is-invalid': registerForm.controls['firstName'].invalid
-                                                          }" 
-                                                          formControlName="firstName">
+                                                          }" formControlName="firstName">
                                                 </div>
-                                                 <div class="input-group mb-4">
+                                                <div class="input-group mb-4">
                                                     <span class="input-group-addon"><svg class="svg-icon"
                                                             xmlns="http://www.w3.org/2000/svg" height="24"
                                                             viewBox="0 0 24 24" width="24">
@@ -49,12 +44,8 @@
                                                             <path
                                                                 d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4zm-6 4c.22-.72 3.31-2 6-2 2.7 0 5.8 1.29 6 2H6zm6-6c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z" />
                                                         </svg></span>
-                                                    <input type="text" 
-                                                    name="lastName" 
-                                                    class="form-control"
-                                                    autocomplete="off"
-                                                        placeholder="Enter Last Name" 
-                                                        required
+                                                    <input type="text" name="lastName" class="form-control"
+                                                        autocomplete="off" placeholder="Enter Last Name" required
                                                         [ngClass]="{
                                                             'is-invalid': registerForm.controls['lastName'].invalid
                                                           }" formControlName="lastName">
@@ -69,13 +60,8 @@
                                                             <path
                                                                 d="M4 20h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2zM20 6l-8 4.99L4 6h16zM4 8l8 5 8-5v10H4V8z" />
                                                         </svg></span>
-                                                    <input type="email" 
-                                                    name="email" 
-                                                    class="form-control"
-                                                    autocomplete="off"
-                                                         placeholder="Enter Email" 
-                                                         required
-                                                        [ngClass]="{
+                                                    <input type="email" name="email" class="form-control"
+                                                        autocomplete="off" placeholder="Enter Email" required [ngClass]="{
                                                             'is-invalid': registerForm.controls['email'].invalid
                                                           }" formControlName="email">
                                                 </div>
@@ -93,12 +79,8 @@
                                                             <path
                                                                 d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
                                                         </svg></span>
-                                                    <input type="password" 
-                                                    name="password" 
-                                                    class="form-control"
-                                                    autocomplete="off"
-                                                        placeholder="Enter Password" 
-                                                        required
+                                                    <input type="password" name="password" class="form-control"
+                                                        autocomplete="off" placeholder="Enter Password" required
                                                         [ngClass]="{
                                                             'is-invalid': registerForm.controls['password'].invalid
                                                           }" formControlName="password">
@@ -117,22 +99,18 @@
                                                             <path
                                                                 d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
                                                         </svg></span>
-                                                    <input type="password" 
-                                                    name="cPassword" 
-                                                    class="form-control"
-                                                    autocomplete="off"
-                                                    formControlName="cPassword"
-                                                        placeholder="Enter Confirm Password"
-                                                         required 
-                                                         [ngClass]="{
+                                                    <input type="password" name="cPassword" class="form-control"
+                                                        autocomplete="off" formControlName="cPassword"
+                                                        placeholder="Enter Confirm Password" required [ngClass]="{
                                                                 'is-invalid': registerForm.controls['cPassword'].invalid
                                                               }">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" formControlName="agree" name="agree"/>
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            formControlName="agree" name="agree" />
                                                         <span class="custom-control-label">Agree the <a
-                                                                routerLink="/pages/terms" class="btn-link">Terms and
+                                                                (click)="open(content)" class="btn-link">Terms and
                                                                 policy</a></span>
                                                     </label>
                                                 </div>
@@ -180,3 +158,32 @@
         </div>
     </div>
 </div>
+
+<ng-template #content let-modal>
+    <div class="modal-header card-header bg-light">
+        <h4 class="modal-title card-title" id="modal-basic-title">
+            Terms And Conditions
+        </h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body card-body">
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <p>I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born
+                    and I will give you a complete account of the system, and expound the actual teachings of the great
+                    explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids
+                    pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure
+                    rationally encounter consequences</p>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+        <button type="button" class="btn btn-danger" (click)="modal.close('Ok click')">Ok</button>
+    </div> -->
+</ng-template>
