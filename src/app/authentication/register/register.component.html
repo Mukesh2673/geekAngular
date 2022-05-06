@@ -1,4 +1,4 @@
-<div class="page-style1 light-mode default-sidebar error-page">
+<div class="page-style1 light-mode default-sidebar error-page registerForm">
     <div class="page">
         <div class="page-single">
             <div class="container">
@@ -128,8 +128,8 @@
                                                     <div class="col-12">
                                                         <button type="submit" [disabled]="
                                                         registerForm.invalid || !registerForm.controls['agree'].value"
-                                                            class="btn  btn-lg btn-primary btn-block px-4"><i
-                                                                class="fe fe-arrow-right"></i> Create a new
+                                                            class="btn  btn-lg btn-primary btn-block px-4 btn-submit d-flex">
+                                                            <div class="arrow bounce"><i class="fe fe-arrow-right "></i></div> Create a new
                                                             account</button>
                                                     </div>
                                                 </div>
@@ -146,7 +146,7 @@
                                         </div>
                                     </div>
                                     <div class="text-center pt-4">
-                                        <div class="font-weight-normal fs-16">You Already have an account <a
+                                        <div class="font-weight-normal fs-16 whiteText">You Already have an account <a
                                                 class="btn-link font-weight-normal" routerLink="/">Login Here</a></div>
                                     </div>
                                 </form>
@@ -166,7 +166,7 @@
         </h4>
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
-    <div class="modal-body card-body">
+    <div class="modal-body card-body termsCondition">
 
         <div class="row">
             <div class="col-md-12">
