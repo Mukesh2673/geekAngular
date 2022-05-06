@@ -119,6 +119,24 @@ a.dropdown-item {
 .title-style h1 {
     color: #333;
 }
+.page-style1:before {
+    opacity: 1 !important;
+}
+.whiteText, .whiteText a {
+    color: #fff
+}
+.whiteText a {
+    text-decoration: underline;
+}
+.loginForm .card {
+    box-shadow: none;
+}
+.loginForm a.btn.btn-link {
+    color: #0f034e;
+}
+.loginForm a.btn.btn-link:hover, .loginForm .whiteText a:hover {
+    color: #ef4035;
+}
 
 
 
