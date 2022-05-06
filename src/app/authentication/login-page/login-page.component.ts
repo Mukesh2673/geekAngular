@@ -30,7 +30,7 @@ export class LoginPageComponent implements OnInit {
     // });
 
     this.loginForm = this.formBuilder.group({
-      email: [
+      username: [
         //this.defaultAuth.email,
         '',
         Validators.compose([
@@ -77,35 +77,6 @@ export class LoginPageComponent implements OnInit {
           this.router.navigate(['/'])
         })
     }
-
-    // this.hasError = false;
-    // const data = {
-    //   email: this.form.email.value,
-    //   password: this.form.password.value,
-    //   role:'Admin'
-    // };
-    // this.apiService.postData("auth/login", data).subscribe(
-    //   (result: any) => {   
-    //     if(result.responseCode===200){
-    //       // Handle result
-    //       localStorage.setItem("authorization", result.data.token);
-    //       localStorage.setItem("checklistUserobject", JSON.stringify(result.data.userDetail));
-    //     } 
-    //   },
-    //   (error) => {
-    //     // Handle error
-    //     this.hasError = true;      
-    //     this.toastr.error(error.error.responseMessage, "Error!");
-    //     console.log("error inside");
-    //   },
-    //   () => {
-    //     this.toastr.success("Logged In.", "Success!");        
-    //     this.router.navigate(['/dashboard']);       
-    //     // 'onCompleted' callback.
-    //     // No errors, route to new page here
-    //   }
-    // );
-
   }
 
   validateForm(email:string, password:string) {
@@ -138,41 +109,43 @@ export class LoginPageComponent implements OnInit {
   }
   
   Submit(){
-    // this.hasError = false;
-    // const data = {
-    //   email: this.form.email.value,
-    //   password: this.form.password.value,
-    //   role:'Admin'
-    // };
-    // this.apiService.postData("auth/login", data).subscribe(
-    //   (result: any) => {   
-    //     if(result.responseCode===200){
-    //       // Handle result
-    //       localStorage.setItem("authorization", result.data.token);
-    //       localStorage.setItem("checklistUserobject", JSON.stringify(result.data.userDetail));
-    //     } 
-    //   },
-    //   (error) => {
-    //     // Handle error
-    //     this.hasError = true;      
-    //     this.toastr.error(error.error.responseMessage, "Error!");
-    //     console.log("error inside");
-    //   },
-    //   () => {
-    //     this.toastr.success("Logged In.", "Success!");        
-    //     this.router.navigate(['/dashboard']);       
-    //     // 'onCompleted' callback.
-    //     // No errors, route to new page here
-    //   }
-    // );
+    this.hasError = false;
+    const data = {
+      email: this.form.username.value,
+      password: this.form.password.value,
+      role:'Admin'
+    };
+    this.apiService.postData("auth/login", data).subscribe(
+      (result: any) => {   
+        if(result.responseCode===200){
+          // Handle result
+          localStorage.setItem("authorization", result.data.token);
+          localStorage.setItem("joaUserobject", JSON.stringify(result.data.userDetail));
+        } 
+      },
+      (error) => {
+        // Handle error
+        this.hasError = true;      
+        this.toastr.error(error.error.responseMessage, "Error!");
+        console.log("error inside");
+      },
+      () => {
+        this.toastr.success("Logged In.", "Success!");        
+        this.router.navigate(['/dashboard']);       
+        // 'onCompleted' callback.
+        // No errors, route to new page here
+      }
+    );
 
-    if (this.loginForm.controls['username'].value === "admin@demo.com" && this.loginForm.controls['password'].value === "admindemo" )
-    {
-      this.router.navigate(['/dashboard/dashboard01']);
-    }
-    else{
-      this.error = "Please check email and passowrd"
-    }
+    // if (this.loginForm.controls['username'].value === "admin@demo.com" && this.loginForm.controls['password'].value === "admindemo" )
+    // {
+    //   this.router.navigate(['/dashboard/dashboard01']);
+    // }
+    // else{
+    //   this.error = "Please check email and passowrd"
+    // }
+
+
   }
 
 }
