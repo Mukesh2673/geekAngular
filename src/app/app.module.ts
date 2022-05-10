@@ -23,6 +23,7 @@ import { RegisterComponent } from './authentication/register/register.component'
 import { UsersModule } from './modules/users/users.module';
 import { ProfileModule } from './modules/profile/profile.module';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ForgotPasswordComponent } from './authentication/forgot-password/forgot
     LoginPageComponent,
     RegisterComponent,
     ForgotPasswordComponent,
+    ResetPasswordComponent,
     // UserListComponent,
     // AddUserComponent
   ],

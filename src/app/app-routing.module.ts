@@ -11,12 +11,15 @@ import { error_content } from './shared/routes/error-content-router';
 import { full_content } from './shared/routes/full-content-router';
 
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo:'auth/login', pathMatch: 'full'},
   { path: 'auth/login', component: LoginPageComponent },
   { path: 'auth/register', component: RegisterComponent },
   { path: 'auth/forgot-password',component:ForgotPasswordComponent},
+  { path: 'auth/reset-password/:code',component:ResetPasswordComponent},
   { path: '', component: FullContentComponent, children: full_content },
   // { path: '', component: HoriFullLayoutComponent, children: full_content },
   { path: '', component: ErrorStyleComponent, children: error_content },

@@ -6,48 +6,64 @@ import { ApiService } from '../../services/api.service';
 import { MustMatch } from '../../shared/validations/passwordValidator';
 
 @Component({
-  selector: 'app-forgot-password',
-  templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.scss']
+  selector: 'app-reset-password',
+  templateUrl: './reset-password.component.html',
+  styleUrls: ['./reset-password.component.scss']
 })
-export class ForgotPasswordComponent implements OnInit {
+export class ResetPasswordComponent implements OnInit {
   hasError: boolean = false;
-  public forgotPasswordForm! : FormGroup;
-  
+  token:string="";
+  public resetPasswordForm! : FormGroup;
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private apiService: ApiService,
-    private toastr: ToastrService,
-  ) { }
+    private toastr: ToastrService
+    ) { }
 
   get form(){
-    return this.forgotPasswordForm.controls;
+    return this.resetPasswordForm.controls;
   }
 
   ngOnInit(): void {
-    this.forgotPasswordForm = this.formBuilder.group({
-      email: [
-        //this.defaultAuth.email,
+    if (this.route.snapshot.params.code != undefined) {
+      this.token = this.route.snapshot.params["code"]; 
+    }
+    this.resetPasswordForm = this.formBuilder.group({
+      password: [
+        //this.defaultAuth.password,
         '',
         Validators.compose([
           Validators.required,
-          Validators.email,
           Validators.minLength(3),
-          Validators.maxLength(320),
+          Validators.maxLength(100),
         ]),
-      ]
-    }    
+      ],
+      cPassword: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(100),
+        ]),
+      ]      
+    },
+    {
+      validator: MustMatch('password','cPassword')
+    }
+       
     );
+
   }
 
-  forgotPassword(){
+  resetPassword(){
     this.hasError = false;
     const data = {
-      email:this.form.email.value
+      password: this.form.password.value,
+      token: this.token 
     };
-    this.apiService.postData("auth/forgotPassword", data).subscribe(
+    this.apiService.postData("auth/resetPassword", data).subscribe(
       (result: any) => {   
         if(result.responseCode===200){
           // Handle result
@@ -61,11 +77,12 @@ export class ForgotPasswordComponent implements OnInit {
         console.log("error inside");
       },
       () => {
-        this.toastr.success("An email with reset password link is sent to you", "Success!");        
+        this.toastr.success("You password is reset successfully", "Success!");     
         this.router.navigate(['/']);      
         // 'onCompleted' callback.
         // No errors, route to new page here
       }
     );
   }
+
 }
