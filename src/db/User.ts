@@ -33,6 +33,10 @@ const userSchema = new mongoose.Schema({
   isDeleted:  {
     type: Boolean,
     default: false
+  },
+  resetPasswordToken:{
+    type: String,
+    default: ""
   }
 },
 {timestamps:true});

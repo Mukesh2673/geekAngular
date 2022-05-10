@@ -9,14 +9,14 @@
     "MONGO_PATH": "mongodb://127.0.0.1:27017/joa"
   },
   "SMTP_SETTING": {
-    "SENDER_NAME":"Seemy Task",
-    "SENDER":"support@checklist.com",
+    "SENDER_NAME":"JOA",
+    "SENDER":"support@joa.com",
     "HOST":"smtp.gmail.com",
     "PORT":587,
     "USERNAME":"geeknarender@gmail.com",
-    "PASSWORD":"narender.negi"
+    "PASSWORD":"Narender@123"
   },
-  "SITE_URL": "",
+  "SITE_URL": "http://localhost:4200",
   "AWS": {
     "SES": {
       "REGION": "",

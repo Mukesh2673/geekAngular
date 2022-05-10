@@ -140,11 +140,11 @@ export const forgotPassword = async (body: any) => {
                      <p>Click on link to reset your password <a href="${link}">click here</a> or you can open link ${link} in your browser</p>
                      <p>Thanks</p>
                      <p>Support Team<br>
-                     Seemy Task
+                     JOA
                      </p>                    
                     `;
     let mailResponse = await JoaUtilities.sendEmail({ recipient_email: body.email, subject: "Forgot Password", text: message });
-    console.log("mailResponse", mailResponse);
+    //console.log("mailResponse", mailResponse);
     return JoaUtilities.sendResponsData({ code: 200, message: 'Mail sent successfully.' });
   } else {
     throw new HTTP400Error(JoaUtilities.sendResponsData({
