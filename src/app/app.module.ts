@@ -22,12 +22,14 @@ import { RegisterComponent } from './authentication/register/register.component'
 // import { AddUserComponent } from './modules/add-user/add-user.component';
 import { UsersModule } from './modules/users/users.module';
 import { ProfileModule } from './modules/profile/profile.module';
+import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     RegisterComponent,
+    ForgotPasswordComponent,
     // UserListComponent,
     // AddUserComponent
   ],

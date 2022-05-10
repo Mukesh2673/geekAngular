@@ -10,10 +10,13 @@ import { custom_content } from './shared/routes/custom-content-router';
 import { error_content } from './shared/routes/error-content-router';
 import { full_content } from './shared/routes/full-content-router';
 
+import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
+
 const routes: Routes = [
   { path: '', redirectTo:'auth/login', pathMatch: 'full'},
   { path: 'auth/login', component: LoginPageComponent },
   { path: 'auth/register', component: RegisterComponent },
+  { path: 'auth/forgot-password',component:ForgotPasswordComponent},
   { path: '', component: FullContentComponent, children: full_content },
   // { path: '', component: HoriFullLayoutComponent, children: full_content },
   { path: '', component: ErrorStyleComponent, children: error_content },

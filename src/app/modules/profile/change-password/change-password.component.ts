@@ -28,7 +28,7 @@ export class ChangePasswordComponent implements OnInit {
 
   ngOnInit(): void {
     this.changePasswordForm = this.formBuilder.group({
-      oldPassword: [
+      currentPassword: [
         //this.defaultAuth.email,
         '',
         Validators.compose([
@@ -65,7 +65,7 @@ export class ChangePasswordComponent implements OnInit {
   changePassword() {
     this.hasError = false;
     const data = {
-      oldPassword:this.form.oldPassword.value,      
+      currentPassword:this.form.currentPassword.value,      
       password: this.form.password.value,
       //role:'Admin'
     };
@@ -83,8 +83,8 @@ export class ChangePasswordComponent implements OnInit {
         console.log("error inside");
       },
       () => {
-        this.toastr.success("Successfully registered.", "Success!");
-        this.router.navigate(['/auth/login']);    
+        this.toastr.success("Password changed successfully.", "Success!");
+        this.router.navigate(['/dashboard']);    
         // 'onCompleted' callback.
         // No errors, route to new page here
       }
