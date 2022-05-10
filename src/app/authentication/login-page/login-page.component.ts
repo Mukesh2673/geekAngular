@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute,Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import { ApiService } from './../../services/api.service'
+import { ApiService } from './../../services/api.service';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-login-page',
@@ -21,9 +22,11 @@ export class LoginPageComponent implements OnInit {
     private route: ActivatedRoute,
     private apiService: ApiService,
     private toastr: ToastrService,
+    private titleService: Title
     ) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle(`JOA | Login`);
     // this.loginForm = this.formBuilder.group({
     //   username : ['admin@demo.com',[Validators.required, Validators.email]],
     //   password : ['admindemo', Validators.required]

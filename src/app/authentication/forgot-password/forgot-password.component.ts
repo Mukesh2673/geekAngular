@@ -3,7 +3,7 @@ import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from '../../services/api.service';
-import { MustMatch } from '../../shared/validations/passwordValidator';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-forgot-password',
@@ -20,6 +20,7 @@ export class ForgotPasswordComponent implements OnInit {
     private route: ActivatedRoute,
     private apiService: ApiService,
     private toastr: ToastrService,
+    private titleService: Title
   ) { }
 
   get form(){
@@ -27,6 +28,7 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle(`JOA | Forgot Password`);
     this.forgotPasswordForm = this.formBuilder.group({
       email: [
         //this.defaultAuth.email,

@@ -6,6 +6,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from './../../services/api.service';
 import { MustMatch } from '../../shared/validations/passwordValidator';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-register',
@@ -33,11 +34,12 @@ export class RegisterComponent implements OnInit {
     private route: ActivatedRoute,
     private apiService: ApiService,
     private toastr: ToastrService,
+    private titleService: Title
   ) { }
 
   
   ngOnInit(): void {
-
+    this.titleService.setTitle(`JOA | Registration`);
     this.registerForm = this.formBuilder.group({
       firstName: [
         //this.defaultAuth.email,
