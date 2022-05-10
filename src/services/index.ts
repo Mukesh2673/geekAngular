@@ -1,0 +1,9 @@
+import authRoutes from "./auth/routes";
+import healthCheckRoutes from "./healthCheck/routes";
+import userRoutes from "./user/routes";
+
+export default [
+    ...authRoutes, 
+    ...healthCheckRoutes,
+    ...userRoutes,
+];

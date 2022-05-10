@@ -1,0 +1,59 @@
+{
+  "AUTHORIZATION": "authorization",
+  "JWT_SECRET_KEY": "d2h4b2h59fb32b54jnfnsh",
+  "SALT": 10,
+  "BASE_PATH": "/api/v1/",
+  "MONGO_CRED": {
+    "MONGO_USER": "gauravd08",
+    "MONGO_PASSWORD": "h0tl6ssJ40VYe0x7",
+    "MONGO_PATH": "mongodb://127.0.0.1:27017/joa"
+  },
+  "SMTP_SETTING": {
+    "SENDER_NAME":"Seemy Task",
+    "SENDER":"support@checklist.com",
+    "HOST":"smtp.gmail.com",
+    "PORT":587,
+    "USERNAME":"geeknarender@gmail.com",
+    "PASSWORD":"narender.negi"
+  },
+  "SITE_URL": "",
+  "AWS": {
+    "SES": {
+      "REGION": "",
+      "ENDPOINT": "",
+      "SENDER_EMAIL_ADDRESS": "",
+      "ACCESS_KEY": "",
+      "SECRET": ""
+    },
+    "BUCKET": {
+      "NAME": "",
+      "REGION": "",
+      "ACCESS_KEY": "",
+      "SECRET": "",
+      "ENDPOINT": ""
+    }
+  },
+  "ERRORS": {
+    "USER_ERRORS": {
+      "USER_EXISTS": "User already exists.",
+      "INVALID_LOGIN": "Invalid login details",
+      "USER_NOT_EXIST": "User does not exist",
+      "INVALID_CURRENT_PASSWORD": "Invalid current password",
+      "LINK_EXPIRED": "Invalid link or link is expired",
+      "INVALID_PASSWORD": "Invalid password",
+      "NOT_ACTIVE": "Your account is not active",
+      "INVALID_DESIGNATION": "User Can not be designated as admin"
+    },
+
+    "UNKNOWN_ERROR": "Something went wrong",
+    "NO_RECORD_FOUND": "No record found",
+    "INAVLID_REQUEST": "Invalid request",
+    "DO_NOT_HAVE_PERMISSION": "You don't have permission",
+    "MISSING_REQUIRED_FIELDS": "Missing required fields",
+    "INVALID_TOKEN": "Invalid Token",    
+    "INVALID_INFORMATION": "Provide valid Information"
+  },
+  "GOOGLE_API_KEY": "",
+  "PUBLISHABLE_KEY": "",
+  "SECRET_KEY": ""
+}
