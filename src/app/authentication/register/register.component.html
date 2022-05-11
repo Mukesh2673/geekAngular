@@ -30,9 +30,17 @@
                                                     <input type="text" name="firstName" class="form-control"
                                                         autocomplete="off" placeholder="Enter First Name" required
                                                         [ngClass]="{
-                                                            'is-invalid': registerForm.controls['firstName'].invalid
+                                                            'is-invalid': registerForm.controls['firstName'].invalid && (registerForm.controls['firstName'].dirty || registerForm.controls['firstName'].touched) 
                                                           }" formControlName="firstName">
                                                 </div>
+
+                                                <div *ngIf="registerForm.controls['firstName'].invalid && (registerForm.controls['firstName'].dirty || registerForm.controls['firstName'].touched)"  >
+                                                    <div *ngIf="registerForm.controls['firstName'].errors.required" class="text-danger">
+                                                    Enter FirstName
+                                                  </div>
+                                                </div>
+                                                
+
                                                 <div class="input-group mb-4">
                                                     <span class="input-group-addon"><svg class="svg-icon"
                                                             xmlns="http://www.w3.org/2000/svg" height="24"
@@ -47,9 +55,18 @@
                                                     <input type="text" name="lastName" class="form-control"
                                                         autocomplete="off" placeholder="Enter Last Name" required
                                                         [ngClass]="{
-                                                            'is-invalid': registerForm.controls['lastName'].invalid
+                                                            'is-invalid': registerForm.controls['lastName'].invalid && (registerForm.controls['lastName'].dirty || registerForm.controls['lastName'].touched) 
                                                           }" formControlName="lastName">
                                                 </div>
+
+                                              
+                                                <div *ngIf="registerForm.controls['lastName'].invalid && (registerForm.controls['lastName'].dirty || registerForm.controls['lastName'].touched)">
+                                                    <div *ngIf="registerForm.controls['lastName'].errors.required" class="text-danger">
+                                                    Enter LastName
+                                                  </div>
+                                                </div>
+                                                
+
                                                 <div class="input-group mb-4">
                                                     <span class="input-group-addon"><svg class="svg-icon"
                                                             xmlns="http://www.w3.org/2000/svg" height="24"
@@ -62,9 +79,23 @@
                                                         </svg></span>
                                                     <input type="email" name="email" class="form-control"
                                                         autocomplete="off" placeholder="Enter Email" required [ngClass]="{
-                                                            'is-invalid': registerForm.controls['email'].invalid
+                                                            'is-invalid': registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched) 
                                                           }" formControlName="email">
                                                 </div>
+
+                                                <div *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)  "  >
+                                                    
+                                                  <div *ngIf="registerForm.controls['email'].errors?.email" class="text-danger">
+                                                    Email address is invalid
+                                                  </div>
+
+                                                  <div *ngIf="registerForm.controls['email'].errors.required" class="text-danger">
+                                                    Email address is required
+                                                  </div>
+
+                                                </div>
+
+                                              
                                                 <div class="input-group mb-4">
                                                     <span class="input-group-addon"><svg class="svg-icon"
                                                             xmlns="http://www.w3.org/2000/svg" height="24"
@@ -82,9 +113,20 @@
                                                     <input type="password" name="password" class="form-control"
                                                         autocomplete="off" placeholder="Enter Password" required
                                                         [ngClass]="{
-                                                            'is-invalid': registerForm.controls['password'].invalid
+                                                            'is-invalid': registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched) 
                                                           }" formControlName="password">
                                                 </div>
+
+                                                
+                                                <div *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
+                                                    <div *ngIf="registerForm.controls['password'].errors.required" class="text-danger">
+                                                        Password is required
+                                                  </div>
+                                                  <div *ngIf="registerForm.controls['password'].errors.minlength" class="text-danger">
+                                                    Password must be at least 3 characters
+                                              </div>
+                                                </div>
+
                                                 <div class="input-group mb-4">
                                                     <span class="input-group-addon"><svg class="svg-icon"
                                                             xmlns="http://www.w3.org/2000/svg" height="24"
@@ -102,9 +144,23 @@
                                                     <input type="password" name="cPassword" class="form-control"
                                                         autocomplete="off" formControlName="cPassword"
                                                         placeholder="Enter Confirm Password" required [ngClass]="{
-                                                                'is-invalid': registerForm.controls['cPassword'].invalid
+                                                                'is-invalid': registerForm.controls['cPassword'].invalid  && (registerForm.controls['cPassword'].dirty || registerForm.controls['cPassword'].touched) 
                                                               }">
                                                 </div>
+
+                                                <div *ngIf="registerForm.controls['cPassword'].errors && registerForm.controls['cPassword'].errors.mustMatch"  >
+                                                    <div *ngIf="registerForm.controls['cPassword'].errors && registerForm.controls['cPassword'].errors.mustMatch" class="text-danger">
+                                                        Passwords must match. 
+                                                  </div>
+                                                </div>
+
+                                                <div *ngIf="registerForm.controls['cPassword'].invalid && (registerForm.controls['cPassword'].dirty || registerForm.controls['cPassword'].touched)"  >
+                                                    <div *ngIf="registerForm.controls['cPassword'].errors.required" class="text-danger">
+                                                      Confirm Password is required
+                                                  </div>
+                                                </div>
+
+                                                
                                                 <div class="mb-3">
                                                     <label class="custom-control custom-checkbox">
                                                         <input type="checkbox" class="custom-control-input"
