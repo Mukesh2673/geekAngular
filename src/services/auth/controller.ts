@@ -57,6 +57,17 @@ export const login = async (req: any, res: any, next: any) => {
     next(error);
   }
 };
+//admin register
+export const addAdmin=async(req:any)=>{
+  console.log('htisiiiadi isidfasidasifdu',req);
+
+}
+
+
+
+
+
+
 
 export const register = async (req: any, res: any, next: any) => {
   try {
