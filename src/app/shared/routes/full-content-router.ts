@@ -100,6 +100,13 @@ export const full_content: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('../../modules/profile/profile.module').then(m => m.ProfileModule)
+  },
+
+  {
+    path:'admins',
+    loadChildren: () => import('../../modules/admins/admins.module').then(m=> m.AdminsModule)
+
   }
+
   
 ]

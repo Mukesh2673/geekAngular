@@ -118,6 +118,12 @@ export class RegisterComponent implements OnInit {
       password: this.form.password.value,
       //role:'Admin'
     };
+
+
+
+
+
+
     this.apiService.postData("auth/register", data).subscribe(
       (result: any) => {   
         if(result.responseCode===200){

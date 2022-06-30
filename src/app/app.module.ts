@@ -25,6 +25,7 @@ import { ProfileModule } from './modules/profile/profile.module';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { ResetPasswordComponent } from './authentication/reset-password/reset-pa
     RegisterComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
+
     // UserListComponent,
     // AddUserComponent
   ],

@@ -1,0 +1,166 @@
+<!--Page header-->
+<div class="page-header">
+	<div class="page-leftheader">
+		<h4 class="page-title">Form-Elements</h4>
+	</div>
+	<div class="page-rightheader ms-auto d-lg-flex d-none">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="javascript:void(0)" class="d-flex"><svg class="svg-icon"
+						xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+						<path d="M0 0h24v24H0V0z" fill="none" />
+						<path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z" />
+						<path d="M7 10.19V18h2v-6h6v6h2v-7.81l-5-4.5z" opacity=".3" />
+					</svg><span class="breadcrumb-icon"> Home</span></a></li>
+			<li class="breadcrumb-item"><a href="javascript:void(0)">Pages</a></li>
+			<li class="breadcrumb-item"><a href="javascript:void(0)">Elements</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Form-Elements</li>
+		</ol>
+	</div>
+</div>
+<!--End Page header-->
+
+
+<div class="row">
+	<div class="col-xl-12 col-lg-12 col-md-12">
+		<div class="card">
+			<div class="card-header">
+				<h3 class="card-title">Admin Details</h3>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<form [formGroup]="adminRegisterForm" (ngSubmit)="addAdmin()">
+
+
+
+
+						<div class="col-sm-6 col-md-6">
+							<div class="mb-3">
+								<label class="form-label">First Name <span class="text-red">*</span></label>
+								<input type="text" class="form-control" placeholder="First name" required
+									autocomplete="on" [ngClass]="{
+														'is-invalid': adminRegisterForm.controls['firstName'].invalid && (adminRegisterForm.controls['firstName'].dirty || adminRegisterForm.controls['firstName'].touched) 
+													  }" formControlName="firstName">
+
+
+							</div>
+							<div
+								*ngIf="adminRegisterForm.controls['firstName'].invalid && (adminRegisterForm.controls['firstName'].dirty || adminRegisterForm.controls['firstName'].touched)">
+								<div *ngIf="adminRegisterForm.controls['firstName'].errors.required"
+									class="text-danger">
+									Enter FirstName
+								</div>
+							</div>
+
+
+
+
+						</div>
+						<div class="col-sm-6 col-md-6">
+							<div class="mb-3">
+								<label class="form-label">Last Name <span class="text-red">*</span></label>
+								<input type="text" name="lastName" class="form-control" autocomplete="off"
+									placeholder="Enter Last Name" required [ngClass]="{
+														'is-invalid': adminRegisterForm.controls['lastName'].invalid && (adminRegisterForm.controls['lastName'].dirty || adminRegisterForm.controls['lastName'].touched) 
+													  }" formControlName="lastName">
+
+
+
+
+							</div>
+							<div
+								*ngIf="adminRegisterForm.controls['lastName'].invalid && (adminRegisterForm.controls['lastName'].dirty || adminRegisterForm.controls['lastName'].touched)">
+								<div *ngIf="adminRegisterForm.controls['lastName'].errors.required" class="text-danger">
+									Enter LastName
+								</div>
+							</div>
+
+
+
+						</div>
+
+						<div class="col-md-12">
+							<div class="mb-3">
+								<label class="form-label">Email address<span class="text-red">*</span></label>
+								<input type="email" class="form-control" placeholder="Email" autocomplete="off" 
+									placeholder="Enter Email" required [ngClass]="{
+														'is-invalid': adminRegisterForm.controls['email'].invalid && (adminRegisterForm.controls['email'].dirty || adminRegisterForm.controls['email'].touched) 
+													  }" formControlName="email">
+
+
+
+
+
+
+
+							</div>
+
+							<div
+								*ngIf="adminRegisterForm.controls['email'].invalid && (adminRegisterForm.controls['email'].dirty || adminRegisterForm.controls['email'].touched)  ">
+
+								<div *ngIf="adminRegisterForm.controls['email'].errors?.email" class="text-danger">
+									Email address is invalid
+								</div>
+
+								<div *ngIf="adminRegisterForm.controls['email'].errors.required" class="text-danger">
+									Email address is required
+								</div>
+
+							</div>
+
+
+
+
+
+
+
+						</div>
+
+						<div class="col-sm-6 col-md-6" *ngIf="!updateid">
+							<div class="mb-3">
+								<label class="form-label">Password  <span class="text-red">*</span></label>
+								<input type="password" name="password" class="form-control" placeholder="Password"
+									autocomplete="off" required [ngClass]="{
+														'is-invalid': adminRegisterForm.controls['password'].invalid && (adminRegisterForm.controls['password'].dirty || adminRegisterForm.controls['password'].touched) 
+													  }" formControlName="password">
+
+							</div>
+							<div
+								*ngIf="adminRegisterForm.controls['password'].invalid && (adminRegisterForm.controls['password'].dirty || adminRegisterForm.controls['password'].touched)">
+								<div *ngIf="adminRegisterForm.controls['password'].errors.required" class="text-danger">
+									Password is required
+								</div>
+								<div *ngIf="adminRegisterForm.controls['password'].errors.minlength"
+									class="text-danger">
+									Password must be at least 3 characters
+								</div>
+							</div>
+
+
+
+
+
+						</div>
+
+						<div class="form-footer mt-2">
+
+							<button  type="submit" [disabled]="
+												adminRegisterForm.invalid"
+								class="btn  btn-primary btn-block px-2 btn-submit d-flex">
+								<div class="arrow bounce"><i class="fe fe-arrow-right "></i></div> 
+								Add
+							</button>
+
+
+
+
+							
+								
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

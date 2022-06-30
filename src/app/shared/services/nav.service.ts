@@ -68,6 +68,7 @@ export class NavService implements OnDestroy {
     MENUITEMS: Menu[] = [
         { path: '/dashboard/dashboard01',title: 'Dashboard', icon: 'home',type: 'link', active: false, },
         { path: '/users/list',icon: 'users', title: 'User List', type: 'link' },
+        { path: '/admins',icon: 'users', title: 'Admin', type: 'link'},
 
         // {
         //     title: 'Dashboard', icon: 'home', type: 'sub', active: false,
