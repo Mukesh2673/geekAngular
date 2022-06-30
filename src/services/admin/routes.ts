@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { addUser,addAdmin,getAdminData} from "./controller";
+import { addUser,addAdmin,getAdminData,deleteAdmin,getAdminDataToUpdate} from "./controller";
 import config from "config";
 import { checkAuthenticate } from "../../middleware/checks";
 
@@ -27,6 +27,35 @@ export default [
       async (req: Request, res: Response) => {
           console.log('get Admins data from mongoss');
           const result = await getAdminData();
+          res.status(200).send(result);
+      }
+    ]
+  },
+  {
+    path: currentPathURL + "/getAdmindata/:id",
+    method: "get",
+    handler: [
+      async (req: Request, res: Response) => {
+          //console.log('get Admins data from mongoss');
+          const result = await getAdminDataToUpdate(req.params.id);
+          res.status(200).send(result);
+      }
+    ]
+  },
+
+
+
+
+
+
+
+  {
+    path: currentPathURL + '/deleteAdmin/:id',
+    method: "delete",
+    handler: [
+      async (req: Request, res: Response) => {
+          console.log('get  data to delete',req.params);
+          const result = await deleteAdmin(req.params.id);
           res.status(200).send(result);
       }
     ]

@@ -27,12 +27,23 @@ export const addUser = async (token:any,body: any) => {
         }
 } 
 
+export const deleteAdmin = async (id: any) => {
+    await userModel.findByIdAndDelete(id);
+} 
+
+//admin data
+
 export const getAdminData = async () => {
     console.log('calladmint data from mongodb');
     let data: any = await userModel.find({role:['Admin'] });
     return data;  
 } 
-
+//send updated admin data 
+export const getAdminDataToUpdate = async (id: any) => {
+  let data:any=await userModel.find({_id:id});
+  console.log(data);
+  return data;
+} 
 
 
 
