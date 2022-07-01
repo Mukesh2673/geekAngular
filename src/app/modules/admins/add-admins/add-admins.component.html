@@ -18,8 +18,6 @@
 	</div>
 </div>
 <!--End Page header-->
-
-
 <div class="row">
 	<div class="col-xl-12 col-lg-12 col-md-12">
 		<div class="card">
@@ -28,11 +26,7 @@
 			</div>
 			<div class="card-body">
 				<div class="row">
-					<form [formGroup]="adminRegisterForm" (ngSubmit)="addAdmin()">
-
-
-
-
+					<form [formGroup]="adminRegisterForm" (ngSubmit)="!updateid ? addAdmin() :  UpdateAdmindata()">
 						<div class="col-sm-6 col-md-6">
 							<div class="mb-3">
 								<label class="form-label">First Name <span class="text-red">*</span></label>
@@ -40,8 +34,6 @@
 									autocomplete="on" [ngClass]="{
 														'is-invalid': adminRegisterForm.controls['firstName'].invalid && (adminRegisterForm.controls['firstName'].dirty || adminRegisterForm.controls['firstName'].touched) 
 													  }" formControlName="firstName">
-
-
 							</div>
 							<div
 								*ngIf="adminRegisterForm.controls['firstName'].invalid && (adminRegisterForm.controls['firstName'].dirty || adminRegisterForm.controls['firstName'].touched)">
@@ -50,10 +42,6 @@
 									Enter FirstName
 								</div>
 							</div>
-
-
-
-
 						</div>
 						<div class="col-sm-6 col-md-6">
 							<div class="mb-3">
@@ -62,10 +50,6 @@
 									placeholder="Enter Last Name" required [ngClass]="{
 														'is-invalid': adminRegisterForm.controls['lastName'].invalid && (adminRegisterForm.controls['lastName'].dirty || adminRegisterForm.controls['lastName'].touched) 
 													  }" formControlName="lastName">
-
-
-
-
 							</div>
 							<div
 								*ngIf="adminRegisterForm.controls['lastName'].invalid && (adminRegisterForm.controls['lastName'].dirty || adminRegisterForm.controls['lastName'].touched)">
@@ -73,27 +57,15 @@
 									Enter LastName
 								</div>
 							</div>
-
-
-
 						</div>
-
 						<div class="col-md-12">
 							<div class="mb-3">
 								<label class="form-label">Email address<span class="text-red">*</span></label>
-								<input type="email" class="form-control" placeholder="Email" autocomplete="off" 
+								<input type="email" class="form-control" placeholder="Email" autocomplete="off"
 									placeholder="Enter Email" required [ngClass]="{
 														'is-invalid': adminRegisterForm.controls['email'].invalid && (adminRegisterForm.controls['email'].dirty || adminRegisterForm.controls['email'].touched) 
 													  }" formControlName="email">
-
-
-
-
-
-
-
 							</div>
-
 							<div
 								*ngIf="adminRegisterForm.controls['email'].invalid && (adminRegisterForm.controls['email'].dirty || adminRegisterForm.controls['email'].touched)  ">
 
@@ -104,20 +76,11 @@
 								<div *ngIf="adminRegisterForm.controls['email'].errors.required" class="text-danger">
 									Email address is required
 								</div>
-
 							</div>
-
-
-
-
-
-
-
 						</div>
-
 						<div class="col-sm-6 col-md-6" *ngIf="!updateid">
 							<div class="mb-3">
-								<label class="form-label">Password  <span class="text-red">*</span></label>
+								<label class="form-label">Password <span class="text-red">*</span></label>
 								<input type="password" name="password" class="form-control" placeholder="Password"
 									autocomplete="off" required [ngClass]="{
 														'is-invalid': adminRegisterForm.controls['password'].invalid && (adminRegisterForm.controls['password'].dirty || adminRegisterForm.controls['password'].touched) 
@@ -134,33 +97,17 @@
 									Password must be at least 3 characters
 								</div>
 							</div>
-
-
-
-
-
 						</div>
-
 						<div class="form-footer mt-2">
-
-							<button  type="submit" [disabled]="
-												adminRegisterForm.invalid"
-								class="btn  btn-primary btn-block px-2 btn-submit d-flex">
-								<div class="arrow bounce"><i class="fe fe-arrow-right "></i></div> 
-								Add
+							<button type="submit" [disabled]="
+												adminRegisterForm.invalid" class="btn  btn-primary btn-block px-2 btn-submit d-flex">
+								<div class="arrow bounce"><i class="fe fe-arrow-right "></i></div>
+								{{updateid ===null ? 'Add' : 'Update' }}
 							</button>
-
-
-
-
-							
-								
 						</div>
 					</form>
-
 				</div>
 			</div>
 		</div>
 	</div>
-
 </div>

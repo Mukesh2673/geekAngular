@@ -12,7 +12,6 @@
 	</div>
 </div>
 <!--End Page header-->
-
 <!-- row opened -->
 <div class="row row-sm">
 	<div class="col-xl-12">
@@ -35,7 +34,7 @@
 								<th class="wd-15p border-bottom-0">First name</th>
 								<th class="wd-15p border-bottom-0">Last name</th>
 								<th class="wd-20p border-bottom-0">Email address</th>
-                                <th class="wd-40p border-bottom-0">Action</th>									
+                                <th class="wd-90p border-bottom-0 action" colspan="2" >Action</th>									
 							</tr>
 						</thead>
 						<tbody>
@@ -43,7 +42,7 @@
 								<td>{{table.firstName}}</td>
 								<td>{{table.lastName}}</td>
 								<td>{{table.email}}</td>
-								<td><button class="edit btn btn-primary" (click)="updateAdmin(table._id)">Edit</button></td>
+								<td><button class="edit btn btn-primary" (click)="editAdmin(table._id)">Edit</button></td>
                                 <td><button class="delete btn btn-success" (click)="deleteAdmin(table._id)">Delete</button></td>
 							</tr>
 						</tbody>
