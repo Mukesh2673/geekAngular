@@ -1,13 +1,10 @@
 import { Request, Response } from "express";
-import { addUser,addAdmin,getAdminData,deleteAdmin,getAdminDataToUpdate} from "./controller";
+import { addUser,addAdmin,getAdminData,deleteAdmin,getAdminDataToUpdate,patchAdmin} from "./controller";
 import config from "config";
 import { checkAuthenticate } from "../../middleware/checks";
-
-
 const basePath = config.get("BASE_PATH");
 const currentPath = "admins";
 const currentPathURL = basePath + currentPath;
-
 export default [
   {
     path: currentPathURL + "/addAdmin",
@@ -25,7 +22,6 @@ export default [
     method: "get",
     handler: [
       async (req: Request, res: Response) => {
-          console.log('get Admins data from mongoss');
           const result = await getAdminData();
           res.status(200).send(result);
       }
@@ -42,13 +38,6 @@ export default [
       }
     ]
   },
-
-
-
-
-
-
-
   {
     path: currentPathURL + '/deleteAdmin/:id',
     method: "delete",
@@ -60,11 +49,15 @@ export default [
       }
     ]
   },
-
-
-
-
-
-
+  {
+    path: currentPathURL + '/patchAdmin',
+    method: "put",
+    handler: [
+      async (req: Request, res: Response) => {
+          const result = await patchAdmin(req.body);
+          res.status(200).send(result);
+      }
+    ]
+  },
   
 ];
