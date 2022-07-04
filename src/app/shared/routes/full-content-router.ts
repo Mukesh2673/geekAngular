@@ -106,7 +106,16 @@ export const full_content: Routes = [
     path:'admins',
     loadChildren: () => import('../../modules/admins/admins.module').then(m=> m.AdminsModule)
 
-  }
+  },
 
+  {
+    path:'drivers',
+    loadChildren: () => import('../../modules/drivers/drivers.module').then(m=> m.DriversModule),
+
+
+
+  }
   
+
+
 ]

@@ -24,8 +24,8 @@ import { UsersModule } from './modules/users/users.module';
 import { ProfileModule } from './modules/profile/profile.module';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
-
-
+import { JwtModule } from '@auth0/angular-jwt';
+import { AuthorizationService } from './services/authorization.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,9 +51,11 @@ import { ResetPasswordComponent } from './authentication/reset-password/reset-pa
     HttpClientModule,
     ToastrModule.forRoot(),
     UsersModule,
-    ProfileModule
+    ProfileModule,
+    JwtModule,
+     
   ],
-  providers: [],
+  providers: [AuthorizationService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

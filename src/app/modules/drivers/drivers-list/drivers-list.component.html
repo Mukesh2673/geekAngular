@@ -19,17 +19,17 @@
 			<div class="card-header pb-0">
 			
             <div>
-                <a routerLink="/admins/add" routerLinkActive="active" class="btn btn-primary">Add Admin</a>
+                <a routerLink="/drivers/add" routerLinkActive="active" class="btn btn-primary">Add Drivers</a>
                 
             </div>
 			</div>
 
 
-			<div class="card-body recordInfo" *ngIf="adminsLists?.length==0">
+			<div class="card-body recordInfo" *ngIf="driversLists?.length==0">
 				No Record Found
 
 			</div>
-			<div class="card-body" *ngIf="adminsLists?.length > 0" >
+			<div class="card-body" *ngIf="driversLists?.length > 0" >
 				<div class="table-responsive">
 					<table class="table text-md-nowrap" id="myTable1">
 						<thead>
@@ -41,14 +41,14 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr *ngFor="let table of adminsLists">
+							<tr *ngFor="let table of driversLists">
 								<td>{{table.firstName}}</td>
 								<td>{{table.lastName}}</td>
 								<td>{{table.email}}</td>
-								<td><a title ="edit" class="edit" (click)="editAdmin(table._id)" ><i class="fe fe-edit">
+								<td><a title ="edit" class="edit" (click)="editDriver(table._id)" ><i class="fe fe-edit">
 									</i>
 								</a>
-                                <a title="remove" (click)="deleteAdmin(table._id)"><i class="fe fe-trash">
+                                <a title="remove" class="delete" (click)="deleteDriver(table._id)"><i class="fe fe-trash">
 									</i>
 								</a></td>
 							</tr>

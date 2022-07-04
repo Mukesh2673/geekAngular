@@ -5,25 +5,25 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
+import { ChangePasswordComponent } from '../../profile/change-password/change-password.component';
 @Component({
-  selector: 'app-add-admins',
-  templateUrl: './add-admins.component.html',
-  styleUrls: ['./add-admins.component.scss'],
+  selector: 'app-add-drivers',
+  templateUrl: './add-drivers.component.html',
+  styleUrls: ['./add-drivers.component.scss']
 })
-export class AddAdminsComponent implements OnInit {
+export class AddDriversComponent implements OnInit {
   updateid!: string;
   closeResult = '';
   message = '';
   errorMessage = '';
-  adminDetails = {};
+  driverDetails = {};
   error: { name: string; message: string } = { name: '', message: '' };
   hasError: boolean = false;
-  public adminRegisterForm!: FormGroup;
-  public adminUpdateForm!: FormGroup;
+  public driverRegisterForm!: FormGroup;
+  public driverUpdateForm!: FormGroup;
   get form() {
-    return this.adminRegisterForm.controls;
+    return this.driverRegisterForm.controls;
   }
-  
   constructor(
     private router: Router,
     private modalService: NgbModal,
@@ -33,17 +33,18 @@ export class AddAdminsComponent implements OnInit {
     private toastr: ToastrService,
     private titleService: Title
   ) {}
+
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       const id = params['id'];
       this.updateid = id ? id : null;
       if(id)
       {
-      this.updateAdmin(id);
+      this.updateDriver(id);
       }
     });
     this.titleService.setTitle(`JOA | Registration`);
-    this.adminRegisterForm = this.formBuilder.group(
+    this.driverRegisterForm = this.formBuilder.group(
       this.updateid == null
         ? {
             firstName: [
@@ -105,60 +106,6 @@ export class AddAdminsComponent implements OnInit {
     this.errorMessage = '';
     this.error = { name: '', message: '' };
   }
-  //update Admin data
-  UpdateAdmindata() {
-    const data = {
-      firstName: this.form.firstName.value,
-      lastName: this.form.lastName.value,
-      email: this.form.email.value,
-      id: this.updateid,
-    };
-    this.apiService.putData('admins/patchAdmin', data).subscribe(
-      (result: any) => {
-        if (result?.responseCode === 200) {
-          // Handle result
-          console.log('okkk', result);
-        }
-      },
-      (error) => {
-        this.hasError = true;
-        this.toastr.error(error.error.responseMessage, 'Error!');
-        console.log('error inside');
-      },
-      () => {
-        this.toastr.success('Successfully updated.', 'Success!');
-        this.router.navigateByUrl('/admins');
-      }
-    );
-  }
-  addAdmin() {
-    this.hasError = false;
-    const data = {
-      firstName: this.form.firstName.value,
-      lastName: this.form.lastName.value,
-      email: this.form.email.value,
-      password: this.form.password.value,
-      role: ['Admin'],
-    };
-    this.apiService.postData('admins/addAdmin', data).subscribe(
-      (result: any) => {
-        if (result.responseCode === 200) {
-          // Handle result
-          this.toastr.success('Successfully registered.', 'Success!');
-        }
-      },
-      (error) => {
-        this.hasError = true;
-        this.toastr.error(error.error.responseMessage, 'Error!');
-        console.log('error inside');
-      },
-      () => {
-
-        this.router.navigateByUrl('/admins');
-      }
-    );
-    
-  }
   validateForm(email: string, password: string) {
     if (email.length === 0) {
       this.errorMessage = 'please enter email id';
@@ -175,25 +122,145 @@ export class AddAdminsComponent implements OnInit {
     this.errorMessage = '';
     return true;
   }
-  updateAdmin(id: any) {
-    this.apiService.getData(`admins/getAdminData/${id}`).subscribe(
-      (result: any) => {
-        this.adminRegisterForm.patchValue({
-          firstName: result[0].firstName,
-          lastName: result[0].lastName,
-          email: result[0].email,
-        });
-        this.adminDetails = { ...result };
-        if (result.responseCode === 200) {
-          // Handle result
-          console.log('success');
+
+
+
+  addDriver()
+  {
+    
+      this.hasError = false;
+      const data = {
+        firstName: this.form.firstName.value,
+        lastName: this.form.lastName.value,
+        email: this.form.email.value,
+        password: this.form.password.value,
+        role: ['Driver'],
+      };0
+      console.log(data);
+       this.apiService.postData('admins/addAdmin', data).subscribe(
+        (result: any) => {
+          if (result.responseCode === 200) {
+            // Handle result
+            this.toastr.success('Successfully registered.', 'Success!');
+          }
+        },
+        (error) => {
+          this.hasError = true;
+          this.toastr.error(error.error.responseMessage, 'Error!');
+          console.log('error inside');
+        },
+        () => {
+  
+          this.router.navigateByUrl('/drivers');
         }
-      },
-      (error) => {
-        //this.hasError=true;
-        //this.toastr.error(error.error.responseMessage,"Error!");
-        console.log('error inside', error);
-      }
-    );
+      ); 
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
   }
+  updateDriverdata()
+  {
+      const data = {
+        firstName: this.form.firstName.value,
+        lastName: this.form.lastName.value,
+        email: this.form.email.value,
+        id: this.updateid,
+      };
+      this.apiService.putData('drivers/patchDriver', data).subscribe(
+        (result: any) => {
+          if (result?.responseCode === 200) {
+            // Handle result
+            console.log('okkk', result);
+          }
+        },
+        (error) => {
+          this.hasError = true;
+          this.toastr.error(error.error.responseMessage, 'Error!');
+          console.log('error',error);
+        },
+        () => {
+          this.toastr.success('Successfully updated.', 'Success!');
+          this.router.navigateByUrl('/drivers');
+        }
+      );
+    
+
+
+    console.log('upadate driver data');
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  }
+
+    updateDriver(id: any) {
+      this.apiService.getData(`drivers/getDriverData/${id}`).subscribe(
+        (result: any) => {
+          this.driverRegisterForm.patchValue({
+            firstName: result[0].firstName,
+            lastName: result[0].lastName,
+            email: result[0].email,
+          });
+          this.driverDetails = { ...result };
+          if (result.responseCode === 200) {
+            // Handle result
+            console.log('success');
+          }
+        },
+        (error) => {
+          //this.hasError=true;
+          //this.toastr.error(error.error.responseMessage,"Error!");
+          console.log('error inside', error);
+        }
+      );
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 }

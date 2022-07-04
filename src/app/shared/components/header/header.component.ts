@@ -37,8 +37,8 @@ export class HeaderComponent implements OnInit {
 
         var joaUserObject:any = localStorage.getItem("joaUserobject");
         joaUserObject = JSON.parse(joaUserObject);
-        this.userType = joaUserObject.role[0];
-        this.userDisplayName = joaUserObject.firstName+" "+joaUserObject.lastName;
+        this.userType = joaUserObject?.role[0];
+        this.userDisplayName = joaUserObject?.firstName+" "+joaUserObject?.lastName;
       }
       
       searchOpen(){

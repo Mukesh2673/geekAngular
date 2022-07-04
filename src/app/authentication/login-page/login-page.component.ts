@@ -119,7 +119,8 @@ export class LoginPageComponent implements OnInit {
       role:'Admin'
     };
     this.apiService.postData("auth/login", data).subscribe(
-      (result: any) => {   
+      (result: any) => {
+        console.log('result is',result);   
         if(result.responseCode===200){
           // Handle result
           localStorage.setItem("authorization", result.data.token);

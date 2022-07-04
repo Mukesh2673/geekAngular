@@ -4,35 +4,36 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 @Component({
-  selector: 'app-admins-list',
-  templateUrl: './admins-list.component.html',
-  styleUrls: ['./admins-list.component.scss'],
+  selector: 'app-drivers-list',
+  templateUrl: './drivers-list.component.html',
+  styleUrls: ['./drivers-list.component.scss']
 })
-export class AdminsListComponent implements OnInit {
-  adminsLists:any=false;
+export class DriversListComponent implements OnInit {
+  driversLists:any=[];
   constructor(
     private apiService: ApiService,
     private toastr: ToastrService,
     private router: Router
-  ) {}
+) { }
+
   ngOnInit(): void {
-    this.adminData();
+    this.driversData();
   }
-  //get Admin Data
-  adminData() {
-    this.apiService.getData('admins/getAdmindata').subscribe(
+   //get driver Data
+   driversData() {
+    this.apiService.getData('drivers/getDriversdata').subscribe(
       (result: any) => {
-        this.adminsLists = result;
-        console.log('value of',result);
+        this.driversLists = result;
       },
       (error) => {
-        console.log('error inside');
+        console.log('error inside',error);
       }
     );
   }
-  //delete Admin Data
-  deleteAdmin(id: any) {
-    this.apiService.deleteData(`admins/deleteAdmin/${id}`).subscribe(
+
+  //delete Driver Data
+  deleteDriver(id: any) {
+    this.apiService.deleteData(`drivers/deleteDriver/${id}`).subscribe(
       (result: any) => {
         if (result?.responseCode === 200) {
           console.log('success');
@@ -43,13 +44,14 @@ export class AdminsListComponent implements OnInit {
       },
       () => {
         this.toastr.success('Successfully Deleted.', 'Success!');
-        this.adminData();
+        this.driversData();
       }
     );
   }
-  //editAdmin data
-  editAdmin(id: any) {
-    this.apiService.getData(`admins/getAdminData/${id}`).subscribe(
+
+   //editDriver data
+   editDriver(id: any) {
+    this.apiService.getData(`drivers/getDriverData/${id}`).subscribe(
       (result: any) => {
         if (result?.responseCode === 200) {
           console.log('success');
@@ -59,8 +61,14 @@ export class AdminsListComponent implements OnInit {
         console.log('error inside', error);
       },
       () => {
-        this.router.navigateByUrl(`/admins/edit/${id}`);
+        this.router.navigateByUrl(`/drivers/edit/${id}`);
       }
     );
   }
+
+
+
+
+
+
 }
