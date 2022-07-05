@@ -59,9 +59,12 @@ export const addAdmin = async (body:any) => {
     //const decoded: any = await JoaUtilities.getDecoded(token);
     //console.log('decoded',decoded)
     //let userRes: any = await userModel.findOne({ email: "admin@gmail.com" });
+     
+    
     let isExist: any = await userModel.findOne({ email: body.email });        
     if (!isExist) {
-        console.log('notexist dataa',isExist)
+
+        body.password = await JoaUtilities.cryptPassword(body.password);
         //body.password = await JoaUtilities.cryptPassword(body.password);
         let result = await userModel.create(body);
         return { responseCode: 200, responseMessage: 'Success', data: result };

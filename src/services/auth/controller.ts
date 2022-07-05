@@ -15,8 +15,9 @@ const response = require("../../utils/res");
 export const login = async (req: any, res: any, next: any) => {
   try {
     const { email, password } = req;
-    const user = await userModel.findOne({ email });  
-    if (!user) {
+    const user = await userModel.findOne({ email }); 
+    console.log(user) 
+    if (!user){
       throw new HTTP400Error(
         JoaUtilities.sendResponsData({
           code: 400,
@@ -36,11 +37,12 @@ export const login = async (req: any, res: any, next: any) => {
     // if (user.isActive == false) {
     //   throw Error("Account is deactivate");
     // }
-    user.role = "User";
+
     let userToken = await JoaUtilities.createJWTToken({
       id:user._id,
       email:user.email,
-      name:user.name
+      name:user.name,
+      role:user.role
     });  
     user.accessToken = userToken;
     user.save(user);
@@ -84,6 +86,7 @@ export const register = async (req: any, res: any, next: any) => {
     const saltRounds = 10;
     const pass: string = await bcrypt.hash(password, saltRounds);
     req.password = pass;
+    req.role='Admin'
     await new userModel(req).save();
     //response.success(res, "User created successfully", 200);
     return JoaUtilities.sendResponsData({ code: 200, message: 'User created successfully', data: {} });

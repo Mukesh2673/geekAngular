@@ -23,8 +23,8 @@ const userSchema = new mongoose.Schema({
     default: "",
   },
   role: {
-    type: Array,
-    default: [],
+    type: String,
+    default:"",
   }, 
   // createdAt: {
   //   type: Date,
@@ -37,6 +37,10 @@ const userSchema = new mongoose.Schema({
   resetPasswordToken:{
     type: String,
     default: ""
+  },
+  parentId:{
+    type: String,
+    default: ""
   }
 },
 {timestamps:true});
@@ -46,7 +50,7 @@ userSchema.set('toJSON',{
       delete ret.password
       delete ret.__v
       delete ret.resetPasswordToken
-      delete ret.accessToken
+      delete ret.accessToken  
       //delete ret._id
   }
 })
