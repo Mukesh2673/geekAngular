@@ -10,6 +10,10 @@ import { Router } from '@angular/router';
 })
 export class AdminsListComponent implements OnInit {
   adminsLists:any=false;
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 2;
+  tableSizes: any = [3, 6, 9, 12];
   constructor(
     private apiService: ApiService,
     private toastr: ToastrService,
@@ -18,12 +22,22 @@ export class AdminsListComponent implements OnInit {
   ngOnInit(): void {
     this.adminData();
   }
+//pagination code
+
+onTableDataChange(event: any) {
+  this.page = event;
+  this.adminData()
+}
+onTableSizeChange(event: any): void {
+  this.tableSize = event.target.value;
+  this.page = 1;
+  this.adminData()
+}
   //get Admin Data
   adminData() {
     this.apiService.getData('admins/getAdmindata').subscribe(
       (result: any) => {
         this.adminsLists = result;
-        console.log('value of',result);
       },
       (error) => {
         console.log('error inside');
@@ -37,7 +51,7 @@ export class AdminsListComponent implements OnInit {
         if (result?.responseCode === 200) {
           console.log('success');
         }
-      },
+      },  
       (error) => {
         console.log('error inside', error);
       },

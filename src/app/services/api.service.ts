@@ -16,7 +16,14 @@ export class ApiService {
     this.jwt = localStorage.getItem("authorization");
   }
 
+getUserDetails(){
+  if(localStorage.getItem('joaUserobject')){
 
+  let UserDetails:any = localStorage.getItem('joaUserobject')
+  return JSON.parse(UserDetails)
+  }
+  return null;
+}
   getToken() {
     let token:any = localStorage.getItem("authorization")? localStorage.getItem("authorization"):"";
     return token;
@@ -29,8 +36,6 @@ export class ApiService {
       text: message,
     })
   }
-
-
   fileSizeValidation(size: number) {
 
     if (size > FILESIZE
@@ -47,12 +52,9 @@ export class ApiService {
     const extType = FILEEXTENTIONTYPE
     let res = extType.includes(ext)
     return res
-
-  }
+ }
   
-
   postData(url: string, data) {
-    
     const headers = {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
@@ -102,5 +104,4 @@ export class ApiService {
     };
     return this.http.delete<any>(this.BaseUrl + url, headers);
   }
-
 }

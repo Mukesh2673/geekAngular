@@ -6,6 +6,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
 import { ChangePasswordComponent } from '../../profile/change-password/change-password.component';
+
 @Component({
   selector: 'app-add-drivers',
   templateUrl: './add-drivers.component.html',
@@ -13,6 +14,7 @@ import { ChangePasswordComponent } from '../../profile/change-password/change-pa
 })
 export class AddDriversComponent implements OnInit {
   updateid!: string;
+  parentId!:any;//id of Active user
   closeResult = '';
   message = '';
   errorMessage = '';
@@ -31,8 +33,10 @@ export class AddDriversComponent implements OnInit {
     private route: ActivatedRoute,
     private apiService: ApiService,
     private toastr: ToastrService,
-    private titleService: Title
-  ) {}
+    private titleService: Title,
+  ) {
+     this.parentId = apiService.getUserDetails()._id;
+    }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -63,7 +67,7 @@ export class AddDriversComponent implements OnInit {
               Validators.compose([
                 Validators.required,
                 Validators.email,
-                Validators.minLength(3),
+                Validators.minLength(6),
                 Validators.maxLength(320), // https://stackoverflow.com/questions/386294/what-is-the-maximum-length-of-a-valid-email-address
               ]),
             ],
@@ -128,15 +132,17 @@ export class AddDriversComponent implements OnInit {
   addDriver()
   {
     
-      this.hasError = false;
+      console.log('panent id is',this.parentId)
+      this.hasError = false;  
       const data = {
         firstName: this.form.firstName.value,
         lastName: this.form.lastName.value,
         email: this.form.email.value,
         password: this.form.password.value,
-        role: ['Driver'],
-      };0
-      console.log(data);
+        role: 'Driver',
+        parentId: this.parentId
+      };
+  
        this.apiService.postData('admins/addAdmin', data).subscribe(
         (result: any) => {
           if (result.responseCode === 200) {
@@ -155,34 +161,6 @@ export class AddDriversComponent implements OnInit {
         }
       ); 
       
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
   }
   updateDriverdata()
   {
@@ -210,20 +188,6 @@ export class AddDriversComponent implements OnInit {
         }
       );
     
-
-
-    console.log('upadate driver data');
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   }
 
     updateDriver(id: any) {

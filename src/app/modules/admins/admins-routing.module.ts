@@ -6,14 +6,24 @@ import { AdminsListComponent } from './admins-list/admins-list.component';
 const routes: Routes = [
   {
     path: "", 
-    canActivateChild: [AuthorizationGuard],
-    children: [
+     canActivateChild: [AuthorizationGuard],
+        children: [
       { path: "add", component: AddAdminsComponent, data:  { title: 'Admins', breadcrumb: 'Admin' }},
       { path: "", component: AdminsListComponent, data: { title: 'Admins', breadcrumb: 'Admin' } },
       { path: "edit/:id", component: AddAdminsComponent, data: { title: 'Admins', breadcrumb: 'Admin' } },
       
     ],
   },
+
+
+
+
+
+
+
+
+
+
 ];
 
 

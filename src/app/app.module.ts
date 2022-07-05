@@ -24,8 +24,8 @@ import { UsersModule } from './modules/users/users.module';
 import { ProfileModule } from './modules/profile/profile.module';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
-import { JwtModule } from '@auth0/angular-jwt';
-import { AuthorizationService } from './services/authorization.service';
+import { AuthorizationGuard } from './shared/routes/authorization.guard';
+//import { JwtHelperService } from '@auth0/angular-jwt/src/jwthelper.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,12 +51,9 @@ import { AuthorizationService } from './services/authorization.service';
     HttpClientModule,
     ToastrModule.forRoot(),
     UsersModule,
-    ProfileModule,
-    JwtModule,
-     
+    ProfileModule
   ],
-  providers: [AuthorizationService],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }

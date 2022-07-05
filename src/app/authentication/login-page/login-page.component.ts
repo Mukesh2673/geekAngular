@@ -5,7 +5,6 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from './../../services/api.service';
 import { Title } from "@angular/platform-browser";
-
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -23,15 +22,13 @@ export class LoginPageComponent implements OnInit {
     private apiService: ApiService,
     private toastr: ToastrService,
     private titleService: Title
-    ) { }
-
+    ) {}
   ngOnInit(): void {
     this.titleService.setTitle(`JOA | Login`);
     // this.loginForm = this.formBuilder.group({
     //   username : ['admin@demo.com',[Validators.required, Validators.email]],
     //   password : ['admindemo', Validators.required]
     // });
-
     this.loginForm = this.formBuilder.group({
       username: [
         //this.defaultAuth.email,
@@ -53,20 +50,16 @@ export class LoginPageComponent implements OnInit {
         ]),
       ],
     });
-
   }
-
   // firebase
   email = "admin@demo.com";
   password = "admindemo";
   errorMessage = ''; // validation _error handle
   _error: { name: string, message: string } = { name: '', message: '' }; // for firbase _error handle
-
   clearErrorMessage() {
     this.errorMessage = '';
     this._error = { name: '', message: '' };
   }
-
   login()
   {
     this.clearErrorMessage();
@@ -81,36 +74,28 @@ export class LoginPageComponent implements OnInit {
         })
     }
   }
-
   validateForm(email:string, password:string) {
     if (email.length === 0) {
       this.errorMessage = "please enter email id";
       return false;
     }
-
     if (password.length === 0) {
       this.errorMessage = "please enter password";
       return false;
     }
-
     if (password.length < 6) {
       this.errorMessage = "password should be at least 6 char";
       return false;
     }
-
     this.errorMessage = '';
     return true;
-
   }
-
   //angular
   public loginForm! : FormGroup;
   public error:any = '';
-  
   get form(){
     return this.loginForm.controls;
   }
-  
   Submit(){
     this.hasError = false;
     const data = {
@@ -119,8 +104,7 @@ export class LoginPageComponent implements OnInit {
       role:'Admin'
     };
     this.apiService.postData("auth/login", data).subscribe(
-      (result: any) => {
-        console.log('result is',result);   
+      (result: any) => {  
         if(result.responseCode===200){
           // Handle result
           localStorage.setItem("authorization", result.data.token);
@@ -148,8 +132,5 @@ export class LoginPageComponent implements OnInit {
     // else{
     //   this.error = "Please check email and passowrd"
     // }
-
-
   }
-
 }

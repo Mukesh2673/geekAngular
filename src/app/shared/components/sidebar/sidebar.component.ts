@@ -1,6 +1,7 @@
 import { Component, Directive, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import PerfectScrollbar from 'perfect-scrollbar';
+import { ApiService } from 'src/app/services/api.service';
 import { Menu, NavService } from '../../services/nav.service';
 
 @Component({
@@ -21,12 +22,17 @@ export class SidebarComponent implements OnInit {
   constructor(
     private router: Router,
     private navServices: NavService,
-    public elementRef: ElementRef
+    public elementRef: ElementRef,
+    private apiService: ApiService
   ) {
+      let UserDetails = apiService.getUserDetails();
+     
     this.navServices.items.subscribe(menuItems => {
       this.menuItems = menuItems;
+     
+      this.authUserdetails(UserDetails);      
       this.router.events.subscribe((event) => {
-        if (event instanceof NavigationEnd) {
+        if (event instanceof NavigationEnd){
           menuItems.filter(items => {
             if (items.path === event.url) {
               this.setNavActive(items);
@@ -52,10 +58,27 @@ export class SidebarComponent implements OnInit {
       });
     });
   }
-  // @HostListener('window: resize', ['$event'])
-  // onResize(event) {
-  //   this.width = event.target.innerWidth - 480;
-  // }
+  //get filtered Userdetails
+  authUserdetails(UserDetails){
+   if(UserDetails.role === 'SuperAdmin'){
+      this.menuItems = this.menuItems.filter((item)=>{
+      return  item.title !== 'Drivers'
+    })
+      }
+
+      if(UserDetails.role === 'Admin'){
+        this.menuItems = this.menuItems.filter((item)=>{
+        return  item.title !== 'Admin'
+      })
+    } 
+
+      if(UserDetails.role === 'Driver'){
+        this.menuItems = this.menuItems.filter((item)=>{
+        return  item.title !== 'Drivers' && item.title !== 'Admin'  
+      })
+   }
+}
+
 
   //Active NavBar State
   setNavActive(item:any) {

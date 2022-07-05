@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { AuthorizationGuard } from 'src/app/shared/routes/authorization.guard';
 
 export const full_content: Routes = [
   { 
@@ -104,17 +105,23 @@ export const full_content: Routes = [
 
   {
     path:'admins',
+    canActivate:[AuthorizationGuard],
+    data: {
+      allowedRoles: ['SuperAdmin']
+    },
     loadChildren: () => import('../../modules/admins/admins.module').then(m=> m.AdminsModule)
 
   },
 
   {
     path:'drivers',
+    canActivate:[AuthorizationGuard],
+    data: {
+      allowedRoles: ['Admin']
+    },
     loadChildren: () => import('../../modules/drivers/drivers.module').then(m=> m.DriversModule),
 
-
-
-  }
+}
   
 
 

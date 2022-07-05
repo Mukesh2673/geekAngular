@@ -92,10 +92,7 @@
                                                   <div *ngIf="registerForm.controls['email'].errors.required" class="text-danger">
                                                     Email address is required
                                                   </div>
-
                                                 </div>
-
-                                              
                                                 <div class="input-group mb-4">
                                                     <span class="input-group-addon"><svg class="svg-icon"
                                                             xmlns="http://www.w3.org/2000/svg" height="24"
@@ -116,8 +113,6 @@
                                                             'is-invalid': registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched) 
                                                           }" formControlName="password">
                                                 </div>
-
-                                                
                                                 <div *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
                                                     <div *ngIf="registerForm.controls['password'].errors.required" class="text-danger">
                                                         Password is required
@@ -126,7 +121,6 @@
                                                     Password must be at least 3 characters
                                               </div>
                                                 </div>
-
                                                 <div class="input-group mb-4">
                                                     <span class="input-group-addon"><svg class="svg-icon"
                                                             xmlns="http://www.w3.org/2000/svg" height="24"
@@ -147,20 +141,16 @@
                                                                 'is-invalid': registerForm.controls['cPassword'].invalid  && (registerForm.controls['cPassword'].dirty || registerForm.controls['cPassword'].touched) 
                                                               }">
                                                 </div>
-
                                                 <div *ngIf="registerForm.controls['cPassword'].errors && registerForm.controls['cPassword'].errors.mustMatch"  >
                                                     <div *ngIf="registerForm.controls['cPassword'].errors && registerForm.controls['cPassword'].errors.mustMatch" class="text-danger">
                                                         Passwords must match. 
                                                   </div>
                                                 </div>
-
                                                 <div *ngIf="registerForm.controls['cPassword'].invalid && (registerForm.controls['cPassword'].dirty || registerForm.controls['cPassword'].touched)"  >
                                                     <div *ngIf="registerForm.controls['cPassword'].errors.required" class="text-danger">
                                                       Confirm Password is required
                                                   </div>
-                                                </div>
-
-                                                
+                                                </div> 
                                                 <div class="mb-3">
                                                     <label class="custom-control custom-checkbox">
                                                         <input type="checkbox" class="custom-control-input"
@@ -234,9 +224,7 @@
                     rationally encounter consequences</p>
 
             </div>
-
         </div>
-
     </div>
     <!-- <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>

@@ -2,7 +2,7 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, fromEvent, Subject } from 'rxjs';
 import { takeUntil, debounceTime } from 'rxjs/operators';
-
+import {AuthServiceService } from '../../services/auth-service.service'
 //Menu Bar
 export interface Menu {
     headTitle?: string,
@@ -33,6 +33,7 @@ export class NavService implements OnDestroy {
     constructor(
         private router: Router
     ) {
+        console.log()
         this.setScreenWidth(window.innerWidth);
         fromEvent(window, 'resize').pipe(
             debounceTime(1000),
@@ -70,7 +71,8 @@ export class NavService implements OnDestroy {
         { path: '/users/list',icon: 'users', title: 'User List', type: 'link' },
         { path: '/admins',icon: 'users', title: 'Admin', type: 'link'},
         { path: '/drivers',icon: 'users', title: 'Drivers', type: 'link'},
-
+      
+    
 
         // {
         //     title: 'Dashboard', icon: 'home', type: 'sub', active: false,

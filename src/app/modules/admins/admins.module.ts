@@ -4,7 +4,9 @@ import { AdminsRoutingModule } from './admins-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddAdminsComponent } from './add-admins/add-admins.component';
 import { AdminsListComponent } from './admins-list/admins-list.component';
-
+import { JwtModule } from '@auth0/angular-jwt';
+import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -16,7 +18,13 @@ import { AdminsListComponent } from './admins-list/admins-list.component';
     CommonModule,
     AdminsRoutingModule,
     FormsModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    NgxPaginationModule,
+    JwtModule.forRoot({})
+  ],
+  providers: [
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
+]
 })
 export class AdminsModule { }

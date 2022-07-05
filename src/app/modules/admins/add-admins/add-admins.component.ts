@@ -71,7 +71,7 @@ export class AddAdminsComponent implements OnInit {
               '',
               Validators.compose([
                 Validators.required,
-                Validators.minLength(3),
+                Validators.minLength(6),
                 Validators.maxLength(100),
               ]),
             ],
@@ -138,7 +138,7 @@ export class AddAdminsComponent implements OnInit {
       lastName: this.form.lastName.value,
       email: this.form.email.value,
       password: this.form.password.value,
-      role: ['Admin'],
+      role: 'Admin',
     };
     this.apiService.postData('admins/addAdmin', data).subscribe(
       (result: any) => {

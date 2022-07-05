@@ -41,9 +41,10 @@
 							</tr>
 						</thead>
 						<tbody>
+			
 							<tr *ngFor="let table of driversLists">
-								<td>{{table.firstName}}</td>
-								<td>{{table.lastName}}</td>
+								<td>{{table.firstName | titlecase}}</td>
+								<td>{{table.lastName | titlecase}}</td>
 								<td>{{table.email}}</td>
 								<td><a title ="edit" class="edit" (click)="editDriver(table._id)" ><i class="fe fe-edit">
 									</i>

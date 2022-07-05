@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
     private apiService: ApiService,
     private toastr: ToastrService,
     ){
+
     this.layoutSubscription = layoutService.changeEmitted.subscribe(
       direction => {
         const dir = direction.direction;
@@ -37,7 +38,7 @@ export class HeaderComponent implements OnInit {
 
         var joaUserObject:any = localStorage.getItem("joaUserobject");
         joaUserObject = JSON.parse(joaUserObject);
-        this.userType = joaUserObject?.role[0];
+        this.userType = joaUserObject?.role;
         this.userDisplayName = joaUserObject?.firstName+" "+joaUserObject?.lastName;
       }
       

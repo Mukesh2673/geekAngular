@@ -17,17 +17,13 @@
 	<div class="col-xl-12">
 		<div class="card" >
 			<div class="card-header pb-0">
-			
             <div>
                 <a routerLink="/admins/add" routerLinkActive="active" class="btn btn-primary">Add Admin</a>
                 
             </div>
 			</div>
-
-
 			<div class="card-body recordInfo" *ngIf="adminsLists?.length==0">
 				No Record Found
-
 			</div>
 			<div class="card-body" *ngIf="adminsLists?.length > 0" >
 				<div class="table-responsive">
@@ -40,10 +36,15 @@
                                 <th class="wd-90p border-bottom-0 action" >Action</th>									
 							</tr>
 						</thead>
-						<tbody>
-							<tr *ngFor="let table of adminsLists">
-								<td>{{table.firstName}}</td>
-								<td>{{table.lastName}}</td>
+						<tbody> 
+							<tr *ngFor="let table of adminsLists|paginate
+							: {
+								itemsPerPage: tableSize,
+								currentPage: page,
+								totalItems: count
+							  };">
+								<td>{{table.firstName | titlecase }}</td>
+								<td>{{table.lastName | titlecase}}</td>
 								<td>{{table.email}}</td>
 								<td><a title ="edit" class="edit" (click)="editAdmin(table._id)" ><i class="fe fe-edit">
 									</i>
@@ -55,6 +56,16 @@
 						</tbody>
 					</table>
 				</div>
+				<pagination-controls
+				
+				previousLabel="Prev"
+				nextLabel="Next"
+				(pageChange)="onTableDataChange($event)"
+    			>
+    			</pagination-controls>
+
+
+
 			</div>
 		</div>
 	</div>
