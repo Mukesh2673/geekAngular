@@ -30,9 +30,38 @@ export const deleteAdmin = async (id: any) => {
 
 //admin data
 
-export const getAdminData = async () => {
-    let data: any = await userModel.find({role:['Admin'] });
-    return data;  
+export const getAdminData = async (skip:any,limit:any) => {
+    
+  try {
+        skip=parseInt(skip);
+        limit=parseInt(limit);
+        var totalCount
+        userModel.countDocuments({role:['Admin'] }, function(err, count) {
+         totalCount=count
+     });
+        
+        
+        let item: any = await userModel.find({role:['Admin'] }).limit(limit).skip(skip);
+        let data={
+          item:item,
+          totals:totalCount,
+          status:'success'
+        }
+        return data;  
+
+
+  } catch (e) {
+    console.log(e);
+    return e;
+}
+  
+  
+  
+  
+  
+  
+  
+
 } 
 //send data to update 
 export const getAdminDataToUpdate = async (id: any) => {
@@ -47,7 +76,7 @@ export const patchAdmin=async(data:any)=>{
   },
 function (err, docs) {
     if (err){
-        console.log('erroror',err)
+        console.log('error',err)
     }
     else{
         return docs;

@@ -22,7 +22,9 @@ export default [
     method: "get",
     handler: [
       async (req: Request, res: Response) => {
-          const result = await getAdminData();
+        const skip=req.query.skip
+        const limit=req.query.limit
+          const result = await getAdminData(skip,limit);
           res.status(200).send(result);
       }
     ]
@@ -32,7 +34,6 @@ export default [
     method: "get",
     handler: [
       async (req: Request, res: Response) => {
-          //console.log('get Admins data from mongoss');
           const result = await getAdminDataToUpdate(req.params.id);
           res.status(200).send(result);
       }
@@ -43,7 +44,6 @@ export default [
     method: "delete",
     handler: [
       async (req: Request, res: Response) => {
-          console.log('get  data to delete',req.params);
           const result = await deleteAdmin(req.params.id);
           res.status(200).send(result);
       }
