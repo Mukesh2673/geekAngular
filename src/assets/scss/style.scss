@@ -73,7 +73,9 @@
 @import "pages/profile";
 
 
-
+::ng-deep .ngx-pagination .current {
+    background: red!important;
+}
 
 
 

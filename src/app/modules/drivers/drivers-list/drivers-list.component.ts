@@ -10,6 +10,14 @@ import { Router } from '@angular/router';
 })
 export class DriversListComponent implements OnInit {
   driversLists:any=[];
+  page: number = 1;
+  count: number = 1;
+  tableSize: number=5
+  pageSize:number = 5
+  totalItems:any=5
+  tableSizes: any = [3, 6, 9, 12]
+  selectedAdminsData:any = '';
+
   constructor(
     private apiService: ApiService,
     private toastr: ToastrService,
@@ -17,13 +25,25 @@ export class DriversListComponent implements OnInit {
 ) { }
 
   ngOnInit(): void {
-    this.driversData();
+    this.driversData(1);
   }
+  
+  //get driver data on select to option  value
+  onSelected(value:string): void {
+		this.selectedAdminsData= value;
+    this.pageSize = parseInt(value);
+    this.tableSize= parseInt(value);
+    this.driversData(1);
+	}
+
    //get driver Data
-   driversData() {
-    this.apiService.getData('drivers/getDriversdata').subscribe(
+   driversData(event){
+    this.page=event;
+    let skip  = this.pageSize *(event -1)
+    this.apiService.getData(`drivers/getDriversdata?skip=${skip}&limit=${this.pageSize}`).subscribe(
       (result: any) => {
-        this.driversLists = result;
+        this.driversLists = result.item;
+        this.count=result.totals 
       },
       (error) => {
         console.log('error inside',error);
@@ -44,7 +64,7 @@ export class DriversListComponent implements OnInit {
       },
       () => {
         this.toastr.success('Successfully Deleted.', 'Success!');
-        this.driversData();
+        this.driversData(event);
       }
     );
   }

@@ -5,7 +5,7 @@ import { DriversRoutingModule } from './drivers-routing.module';
 import { AddDriversComponent } from './add-drivers/add-drivers.component';
 import { DriversListComponent } from './drivers-list/drivers-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     DriversRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule,
 
   ]
 })

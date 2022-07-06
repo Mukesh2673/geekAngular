@@ -21,7 +21,20 @@
                 <a routerLink="/admins/add" routerLinkActive="active" class="btn btn-primary">Add Admin</a>
                 
             </div>
+			<div class="dataTables_length bs-select" id="dtBasicExample_length"><label>Show entries 
+				<select name="dtBasicExample_length" aria-controls="dtBasicExample" class="custom-select custom-select-sm form-control form-control-sm" #adminsdata (change)="onSelected(adminsdata.value)">
+					<option value="5">5</option>
+					<option value="10">10</option>
+					<option value="15">15</option>
+					<option value="20">20</option>
+				</select></label>
 			</div>
+
+		</div>
+
+			
+
+
 			<div class="card-body recordInfo" *ngIf="adminsLists?.length==0">
 				No Record Found
 			</div>
@@ -57,10 +70,10 @@
 					</table>
 				</div>
 				<pagination-controls
-				
 				previousLabel="Prev"
 				nextLabel="Next"
-				(pageChange)="onTableDataChange($event)"
+				(pageChange)="adminData($event,1)"
+				class="page-link"
     			>
     			</pagination-controls>
 

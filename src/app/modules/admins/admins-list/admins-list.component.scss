@@ -18,3 +18,21 @@
 a.edit {
     margin-right: 10px;
 }
+.card-header.pb-0 {
+    display: flex;
+    justify-content: space-between;
+}
+ 
+
+::ng-deep .ngx-pagination .current {
+    background: #0f034e!important;
+} 
+
+.form-control-sm{
+    -webkit-appearance: auto!important;
+    appearance: auto!important;
+    padding: 5px;
+}  
+/* 
+
+ */

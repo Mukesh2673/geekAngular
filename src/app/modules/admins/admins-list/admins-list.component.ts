@@ -11,34 +11,45 @@ import { Router } from '@angular/router';
 export class AdminsListComponent implements OnInit {
   adminsLists:any=false;
   page: number = 1;
-  count: number = 0;
-  tableSize: number = 2;
-  tableSizes: any = [3, 6, 9, 12];
+  count: number = 1;
+  tableSize: number=5
+  pageSize:number = 5
+  totalItems:any=5
+  tableSizes: any = [3, 6, 9, 12]
+  selectedAdminsData:any = '';
+  
   constructor(
     private apiService: ApiService,
     private toastr: ToastrService,
     private router: Router
   ) {}
-  ngOnInit(): void {
-    this.adminData();
-  }
-//pagination code
+    
 
-onTableDataChange(event: any) {
-  this.page = event;
-  this.adminData()
-}
-onTableSizeChange(event: any): void {
-  this.tableSize = event.target.value;
-  this.page = 1;
-  this.adminData()
-}
-  //get Admin Data
-  adminData() {
-    this.apiService.getData('admins/getAdmindata').subscribe(
+
+
+
+
+  ngOnInit(): void {
+    this.adminData(1);
+  }
+
+
+	onSelected(value:string): void {
+		this.selectedAdminsData= value;
+    this.pageSize = parseInt(value);
+    this.tableSize= parseInt(value);
+    this.adminData(1);
+	}
+
+
+  adminData(event) {
+     this.page=event;
+     let skip  = this.pageSize *(event -1)
+      this.apiService.getData(`admins/getAdmindata?skip=${skip}&limit=${this.pageSize}`).subscribe(
       (result: any) => {
-        this.adminsLists = result;
-      },
+        this.adminsLists = result.item;
+        this.count=result.totals 
+        },
       (error) => {
         console.log('error inside');
       }
@@ -57,7 +68,7 @@ onTableSizeChange(event: any): void {
       },
       () => {
         this.toastr.success('Successfully Deleted.', 'Success!');
-        this.adminData();
+        this.adminData(event);
       }
     );
   }
