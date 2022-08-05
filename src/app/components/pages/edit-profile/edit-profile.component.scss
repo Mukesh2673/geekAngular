@@ -1,0 +1,16 @@
+.updatebtn{
+    width: 100px;
+}
+.addImage.bg-primary.text-white{
+    height: 40px;
+    border-radius: 59%;
+    width: 40px;
+    padding-top: 12px;
+    padding-left: 12px;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    display: none;
+}
+

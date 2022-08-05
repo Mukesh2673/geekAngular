@@ -21,7 +21,7 @@
 									<div class="widget-user-image mx-auto mt-5 text-center"><img alt="User Avatar" class="rounded-circle" src="../../assets/images/users/16.jpg"></div>
 									<div class="card-body text-center">
 										<div class="pro-user">
-											<h3 class="pro-user-username text-dark mb-1">Jenna Side</h3>
+											<h3 class="pro-user-username text-dark mb-1">{{userDetails.firstName +' '+userDetails.lastName | titlecase}}</h3>
 											<h6 class="pro-user-desc text-muted">Web Designer</h6>
 											<a routerLink="/pages/profile/profile01" class="btn btn-primary mt-3">View Profile</a>
 										</div>
@@ -75,122 +75,272 @@
 								</div>
 							</div>
 							<div class="col-xl-8 col-lg-7">
+								<form [formGroup]="registerForm" (ngSubmit)="register()">
 								<div class="card">
 									<div class="card-header">
 										<div class="card-title">Edit Profile</div>
 									</div>
 									<div class="card-body">
-										<div class="card-title font-weight-bold">Basci info:</div>
-										<div class="row">
-											<div class="col-sm-6 col-md-6">
-												<div class="mb-3">
-													<label class="form-label">First Name</label>
-													<input type="text" class="form-control" placeholder="First Name">
-												</div>
+
+										<div class="card-title font-weight-bold d-flex justify-content-between">Basci info:
+											
+											<div class="bg-primary text-white addImage"> 
+												
+												<label><i class="fa fa-plus" aria-hidden="true"></i>
+												<input 
+												formControlName="profile"
+												id="file" 
+												type="file" 
+												class="form-control"
+												(change)="onFileChange($event)">
+										
+										</label>
 											</div>
-											<div class="col-sm-6 col-md-6">
+										
+
+
+										</div>
+
+										<div class="clearfix mt-0">
+											<div class="pull-right">profile</div>
+										</div>
+									
+
+
+
+										<div class="row">
+									<div class="col-sm-6 col-md-5 ms-4">
+										<div class="mb-3">
+											<label class="form-label">First Name</label>
+												<input type="text" name="First Name" class="form-control"
+															autocomplete="off" placeholder="Enter First Name" required
+															[ngClass]="{
+													'is-invalid': registerForm.controls['firstName'].invalid && (registerForm.controls['firstName'].dirty || registerForm.controls['firstName'].touched) 
+												}" formControlName="firstName">
+										</div>
+										<div *ngIf="registerForm.controls['firstName'].invalid && (registerForm.controls['firstName'].dirty || registerForm.controls['firstName'].touched)">
+											<div *ngIf="registerForm.controls['firstName'].errors.required" class="text-danger">
+											required
+										  </div>
+										</div>
+									</div>
+											<div class="col-sm-6 col-md-5">
 												<div class="mb-3">
 													<label class="form-label">Last Name</label>
-													<input type="text" class="form-control" placeholder="Last Name">
+													<input type="text" name="lastName" class="form-control"
+												autocomplete="off" placeholder="Enter Last Name" required
+												[ngClass]="{
+													'is-invalid': registerForm.controls['lastName'].invalid && (registerForm.controls['lastName'].dirty || registerForm.controls['lastName'].touched) 
+												  }" formControlName="lastName">
 												</div>
+												<div *ngIf="registerForm.controls['lastName'].invalid && (registerForm.controls['lastName'].dirty || registerForm.controls['lastName'].touched)">
+													<div *ngIf="registerForm.controls['lastName'].errors.required" class="text-danger">
+												required
+												  </div>
+												</div>
+										</div>
+
+									  
+									
+											
+											
+											
+											
+											
 											</div>
 											<div class="col-sm-6 col-md-6">
 												<div class="mb-3">
 													<label class="form-label">Email address</label>
-													<input type="email" class="form-control" placeholder="Email">
+													<input type="email" name="Email" class="form-control"
+													autocomplete="off" placeholder="Email" required
+													[ngClass]="{
+														'is-invalid': registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched) 
+													  }" formControlName="email">
+												</div>
+												<div *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)">
+													<div *ngIf="registerForm.controls['email'].errors.required" class="text-danger">
+												required
+												  </div>
 												</div>
 											</div>
 											<div class="col-sm-6 col-md-6">
 												<div class="mb-3">
 													<label class="form-label">Phone Number</label>
-													<input type="number" class="form-control" placeholder="Number">
+													<input type="number" name="phone" class="form-control"
+													autocomplete="off" placeholder="Number" required
+													[ngClass]="{
+														'is-invalid': registerForm.controls['phone'].invalid && (registerForm.controls['phone'].dirty || registerForm.controls['phone'].touched) 
+													  }" formControlName="phone">
 												</div>
+												<div *ngIf="registerForm.controls['phone'].invalid && (registerForm.controls['phone'].dirty || registerForm.controls['phone'].touched)">
+													<div *ngIf="registerForm.controls['phone'].errors.required" class="text-danger">
+												required
+												  </div>
+												</div>
+
 											</div>
 											<div class="col-md-12">
+											
 												<div class="mb-3">
 													<label class="form-label">Address</label>
-													<input type="text" class="form-control" placeholder="Home Address">
+													<input type="text" name="address" class="form-control"
+													autocomplete="off" placeholder="Home Address" required
+													[ngClass]="{
+														'is-invalid': registerForm.controls['address'].invalid && (registerForm.controls['address'].dirty || registerForm.controls['address'].touched) 
+													  }" formControlName="address">
 												</div>
+												<div *ngIf="registerForm.controls['address'].invalid && (registerForm.controls['address'].dirty || registerForm.controls['address'].touched)">
+													<div *ngIf="registerForm.controls['address'].errors.required" class="text-danger">
+												required
+												  </div>
+												</div>
+											
+											
+											
+											
 											</div>
 											<div class="col-sm-6 col-md-4">
 												<div class="mb-3">
 													<label class="form-label">City</label>
-													<input type="text" class="form-control" placeholder="City">
+													<input type="text" name="city" class="form-control"
+													autocomplete="off" placeholder="City" required
+													[ngClass]="{
+														'is-invalid': registerForm.controls['city'].invalid && (registerForm.controls['city'].dirty || registerForm.controls['city'].touched) 
+													  }" formControlName="city">
+
+												
 												</div>
+												<div *ngIf="registerForm.controls['city'].invalid && (registerForm.controls['city'].dirty || registerForm.controls['city'].touched)">
+													<div *ngIf="registerForm.controls['city'].errors.required" class="text-danger">
+												required
+												  </div>
+												</div>
+											
 											</div>
 											<div class="col-sm-6 col-md-3">
 												<div class="mb-3">
 													<label class="form-label">Postal Code</label>
-													<input type="number" class="form-control" placeholder="ZIP Code">
+													<input type="number" name="postalCode" class="form-control"
+													autocomplete="off" placeholder="Code" required
+													[ngClass]="{
+														'is-invalid': registerForm.controls['postalCode'].invalid && (registerForm.controls['postalCode'].dirty || registerForm.controls['postalCode'].touched) 
+													  }" formControlName="postalCode">
+
+												</div>
+												<div *ngIf="registerForm.controls['postalCode'].invalid && (registerForm.controls['postalCode'].dirty || registerForm.controls['postalCode'].touched)">
+													<div *ngIf="registerForm.controls['postalCode'].errors.required" class="text-danger">
+												required
+												  </div>
 												</div>
 											</div>
 											<div class="col-md-5">
 												<div class="mb-3">
 													<label class="form-label">Country</label>
-													<ng-select class="form-control nice-select select2">
-														<!-- <optgroup label="Categories"> -->
-															<ng-option data-select2-id="5">--Select--</ng-option>
-															<ng-option value="1">Germany</ng-option>
-															<ng-option value="2">Real Estate</ng-option>
-															<ng-option value="3">Canada</ng-option>
-															<ng-option value="4">Usa</ng-option>
-															<ng-option value="5">Afghanistan</ng-option>
-															<ng-option value="6">Albania</ng-option>
-															<ng-option value="7">China</ng-option>
-															<ng-option value="8">Denmark</ng-option>
-															<ng-option value="9">Finland</ng-option>
-															<ng-option value="10">India</ng-option>
-															<ng-option value="11">Kiribati</ng-option>
-															<ng-option value="12">Kuwait</ng-option>
-															<ng-option value="13">Mexico</ng-option>
-															<ng-option value="14">Pakistan</ng-option>
-														<!-- </optgroup> -->
-													</ng-select>
+													<select formControlName="countryName" class="form-control nice-select ">
+														<option [ngValue]="" disabled>Select</option>
+														<option *ngFor="let name of countries" [ngValue]="name">
+														 {{ name }}
+														</option>
+													  </select> 
+													
 												</div>
+												<div *ngIf="registerForm.controls['countryName'].invalid && (registerForm.controls['countryName'].dirty || registerForm.controls['countryName'].touched)">
+													<div *ngIf="registerForm.controls['countryName'].errors.required" class="text-danger">
+												required
+												  </div>
+												</div>
+
+
 											</div>
 										</div>
-										<div class="card-title font-weight-bold mt-5">External Links:</div>
-										<div class="row">
-											<div class="col-sm-6 col-md-6">
+										<div class="card-title font-weight-bold mt-5 ms-5 ">External Links:</div>
+										<div class="row ms-5">
+											<div class="col-sm-6 col-md-5">
 												<div class="mb-3">
 													<label class="form-label">Facebook</label>
-													<input type="text" class="form-control" placeholder="https://www.facebook.com/">
-												</div>
+													<input type="text" name="google" class="form-control"
+													autocomplete="off" placeholder="https://www.facebook.com/" required
+														formControlName="facebook">
+													</div>
+												
 											</div>
-											<div class="col-sm-6 col-md-6">
+
+											<div class="col-sm-6 col-md-5">
 												<div class="mb-3">
 													<label class="form-label">Google</label>
-													<input type="text" class="form-control" placeholder="https://www.google.com/">
-												</div>
+													<input type="text" name="google" class="form-control"
+													autocomplete="off" placeholder="https://www.google.com/" required
+													 formControlName="google">
+													</div>
+													
 											</div>
-											<div class="col-sm-6 col-md-6">
+											<div class="col-sm-6 col-md-5">
 												<div class="mb-3">
 													<label class="form-label">Twitter</label>
-													<input type="text" class="form-control" placeholder="https://twitter.com/">
+													<input type="text" class="form-control" placeholder="https://twitter.com/" formControlName="twitter">
+
 												</div>
 											</div>
-											<div class="col-sm-6 col-md-6">
+											<div class="col-sm-6 col-md-5">
 												<div class="mb-3">
 													<label class="form-label">Pinterest</label>
-													<input type="text" class="form-control" placeholder="https://in.pinterest.com/">
+													<input type="text" class="form-control" placeholder="https://in.pinterest.com/" formControlName="pinterest">
 												</div>
 											</div>
 										</div>
-										<div class="card-title font-weight-bold mt-5">About:</div>
+										<div class="card-title font-weight-bold mt-5 ms-4">About:</div>
 										<div class="row">
 											<div class="col-md-12">
 												<div class="mb-3">
-													<label class="form-label">About Me</label>
-													<textarea rows="5" class="form-control" placeholder="Enter About your description"></textarea>
+													<label class="form-label ms-5">About Me</label>
+													<textarea rows="4"  class="form-control about" placeholder="Enter About your description"
+													[ngClass]="{
+														'is-invalid': registerForm.controls['about'].invalid && (registerForm.controls['about'].dirty || registerForm.controls['about'].touched) 
+													}" formControlName="about"
+													
+													></textarea>
+												
+												</div>
+												<div *ngIf="registerForm.controls['about'].invalid && (registerForm.controls['about'].dirty || registerForm.controls['about'].touched)">
+													<div *ngIf="registerForm.controls['about'].errors.required" class="text-danger">
+												required
+												  </div>
 												</div>
 											</div>
 										</div>
+										<button type="submit" [disabled]="registerForm.invalid"
+											class="btn btn-primary updatebtn">
+										 update</button>
+										</div>
+									<div class="card-footer text-end"><!-- 
+										<button type="submit" class="btn btn-lg btn-primary me-2" [disabled]="registerForm.invalid || !registerForm.controls['agree'].value">Updated</button>
+										<a href="javascript:void(0)" class="btn btn-lg btn-danger">Cancel</a> -->
+										
 									</div>
-									<div class="card-footer text-end">
-										<a href="javascript:void(0)" class="btn btn-lg btn-primary me-2">Updated</a>
-										<a href="javascript:void(0)" class="btn btn-lg btn-danger">Cancel</a>
-									</div>
-								</div>
+									
+
+
+
+							
+							
+								</form>
 							</div>
 						</div>
 						<!-- End Row-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
