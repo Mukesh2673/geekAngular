@@ -89,3 +89,15 @@ export const updateStatus = async (body: any, id: string) => {
         throw new HTTP404Error({ responseCode: 404, responseMessage: config.get('ERRORS.NO_RECORD_FOUND') });
     }
 }
+
+export const uploadImg = async (body: any) => {    
+  /*   let UserRes: any = await userModel.findOne({ _id: mongoose.Types.ObjectId(id) });
+    if (UserRes) {
+        UserRes.status = body.status;                   
+        let result = await UserRes.save();
+        return { responseCode: 200, responseMessage: 'Success', data: result };
+    } else {
+        throw new HTTP404Error({ responseCode: 404, responseMessage: config.get('ERRORS.NO_RECORD_FOUND') });
+    }
+} */
+}

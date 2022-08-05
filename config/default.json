@@ -6,7 +6,7 @@
   "MONGO_CRED": {
     "MONGO_USER": "gauravd08",
     "MONGO_PASSWORD": "h0tl6ssJ40VYe0x7",
-    "MONGO_PATH": "mongodb://127.0.0.1:27017/joa"
+    "MONGO_PATH": "mongodb://127.0.0.1:27017/joa2"
   },
   "SMTP_SETTING": {
     "SENDER_NAME":"JOA",

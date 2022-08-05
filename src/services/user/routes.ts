@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { addUser, getUserList, getUserDetail, deleteUser, updateStatus} from "./controller";
+import { addUser, getUserList, getUserDetail, deleteUser, updateStatus, uploadImg} from "./controller";
 import config from "config";
 import { checkAuthenticate } from "../../middleware/checks";
 
@@ -64,4 +64,20 @@ export default [
       }
     ]
   },
+  
+  {
+    path: currentPathURL+'/profile',
+    method: "get",
+    handler: [
+      checkAuthenticate,
+      async (req: Request, res: Response) => {
+      const result = await uploadImg(req.body);
+        res.status(200).send(result);
+      }
+    ]
+  }
+
+
+
+
 ];
