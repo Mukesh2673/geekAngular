@@ -47,7 +47,6 @@ export default [
     method: "delete",
     handler: [
       async (req: Request, res: Response) => {
-        console.log('get  data to delete', req.params);
         const result = await deleteDriver(req.params.id);
         res.status(200).send(result);
       }

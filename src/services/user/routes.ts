@@ -1,11 +1,16 @@
-import { Request, Response } from "express";
-import { addUser, getUserList, getUserDetail, deleteUser, updateStatus, uploadImg} from "./controller";
+import { NextFunction, Request, Response } from "express";
+import { addUser, getUserList, getUserDetail, deleteUser, updateStatus, fileUpload} from "./controller";
 import config from "config";
 import { checkAuthenticate } from "../../middleware/checks";
-
+import { imgModel } from "../../db/image";
+import path from "path";
+import multer from "multer";
 const basePath = config.get("BASE_PATH");
 const currentPath = "users";
 const currentPathURL = basePath + currentPath;
+const upload = require('../../utils/upload').upload;
+
+
 
 export default [
   {
@@ -64,20 +69,21 @@ export default [
       }
     ]
   },
-  
   {
-    path: currentPathURL+'/profile',
-    method: "get",
+    path: currentPathURL + "/profile",
+    method: "post",
     handler: [
-      checkAuthenticate,
-      async (req: Request, res: Response) => {
-      const result = await uploadImg(req.body);
+      async (req: Request, res: Response, next: NextFunction) => {
+        const result = await fileUpload(req, res, next);
         res.status(200).send(result);
-      }
-    ]
-  }
+      },
+    ],
+  },
+  ]
+        
+      
+    
+
+    
 
 
-
-
-];

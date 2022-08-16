@@ -25,7 +25,15 @@ const userSchema = new mongoose.Schema({
   role: {
     type: String,
     default:"",
-  }, 
+  },
+  
+  profile:{
+  
+        type: String,
+        default:""
+    
+  },
+
   // createdAt: {
   //   type: Date,
   //   default: Date.now,

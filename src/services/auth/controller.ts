@@ -10,13 +10,14 @@ import { JoaUtilities } from "../../utils/JoaUtilities";
 var mongoose = require("mongoose");
 import * as bcrypt from "bcrypt";
 import { invalidTokenError, defaultError } from "../../utils/ErrorHandler";
+import { NextFunction } from "express";
 const response = require("../../utils/res");
 
 export const login = async (req: any, res: any, next: any) => {
   try {
     const { email, password } = req;
     const user = await userModel.findOne({ email }); 
-    console.log(user) 
+ 
     if (!user){
       throw new HTTP400Error(
         JoaUtilities.sendResponsData({
@@ -314,3 +315,57 @@ export const test = async (a: any, b: any, c: any) => {
   </body>
   </html>`;
 };
+
+
+
+export const updateProfile = async (data: any) => {
+try{
+  const id=data._id;
+  let userProfile=data;  
+ Object.keys(userProfile).forEach(key => {
+  if (userProfile[key] === '') {
+    delete userProfile[key];
+  }
+  delete userProfile['_id']
+})
+
+
+
+console.log(userProfile);
+return;
+
+
+
+ let result=await userModel.findByIdAndUpdate(data._id, { firstName: data.firstName,lastName:data.lastName,
+  email:data.email
+  })
+
+
+
+}
+catch(error)
+{
+  throw error
+}
+
+
+
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            

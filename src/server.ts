@@ -6,10 +6,19 @@ import errorHandlers from "./middleware/errorHandlers";
 import routes from "./services";
 import mongoose = require("mongoose");
 import config from "config";
-import multer from "multer";
 const router = express();
-const upload: any = multer({ dest: "temp/" });
+const multer = require("multer");
+const upload:any=multer({ dest: "public/upload/" });
+
+router.use(express.static('public/upload'));
+/* //make folder static when get data from browser url
+and path will be 
+http://localhost:3000/e2ae7d16369e4f481d0aaef03bcf69a9-1660047524860.webp
+ */
+
 router.use(upload.any());
+/* const upload: any = multer({ dest: "temp/" });
+router.use(upload.any()); */
 applyMiddleware(middleware, router);
 applyRoutes(routes, router);
 applyMiddleware(errorHandlers, router);

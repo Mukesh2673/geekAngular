@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { logout, login, register, forgotPassword, resetPassword,changePassword, test, createAdmin } from "./controller";
+import { logout, login, register, forgotPassword, resetPassword,changePassword, test, createAdmin, updateProfile } from "./controller";
 import config from "config";
 import { validate, checkAuthenticate, checkSignup } from "./middleware/check";
 const basePath = config.get("BASE_PATH");
@@ -98,4 +98,34 @@ export default [
       },
     ],
   },
+  {
+    path: currentPathURL + "/update",
+    method: "post",
+    handler: [
+      async (req: Request, res: Response, next: NextFunction) => {
+         
+
+        const result = await updateProfile(req.body);
+        //res.status(200).send(result);
+          
+          }
+        
+        
+        ]
+          
+         
+
+
+
+
+        //const result = await test(req.body, res, next);
+        //res.status(200).send(result);
+   
+  },
+
+
+
+
+
+
 ];

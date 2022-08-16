@@ -3,6 +3,10 @@ import mongoose = require("mongoose");
 import { HTTP400Error, HTTP404Error, HTTP403Error } from "../../utils/httpErrors";
 import { JoaUtilities } from "../../utils/JoaUtilities";
 import config from "config";
+var fs = require('fs');
+
+/* const multer  = require('multer')
+const upload: any = multer({ dest: "public/" }); */
 
 /**
  * Create User
@@ -90,14 +94,30 @@ export const updateStatus = async (body: any, id: string) => {
     }
 }
 
-export const uploadImg = async (body: any) => {    
-  /*   let UserRes: any = await userModel.findOne({ _id: mongoose.Types.ObjectId(id) });
-    if (UserRes) {
-        UserRes.status = body.status;                   
-        let result = await UserRes.save();
-        return { responseCode: 200, responseMessage: 'Success', data: result };
-    } else {
-        throw new HTTP404Error({ responseCode: 404, responseMessage: config.get('ERRORS.NO_RECORD_FOUND') });
-    }
-} */
-}
+      export const fileUpload = async (req: any, res: any, next: any) => {
+        try {
+           
+          const filePath = "http://localhost:3000"
+          // let filename = req.files[0].filename + `-` + Date.now() + path.extname(req.files[0].originalname);
+      
+          let filename = req.files[0].filename + `-` + Date.now() + '.webp';
+      
+          let old: any = req.files[0].path;
+          let newPath: any = process.cwd() + '/public/upload/' + filename;
+      
+          fs.rename(old, newPath, function (err: any) {
+            if (err) throw err
+          })
+          let fileUrl = `${filePath}/` + filename;
+
+          
+          const token: any = req.get(config.get("AUTHORIZATION"));
+          let doc = await userModel.findOneAndUpdate({ accessToken: token },{profile:fileUrl}, {
+              new: true
+            });
+          return { doc };
+        }
+        catch (error) {
+          next(error);
+        }
+      };
