@@ -9,7 +9,8 @@ import { ApiService } from '../../../services/api.service';
 /* import { MustMatch } from '../../shared/validations/passwordValidator'; */
 import { MustMatch } from '../../../shared/validations/passwordValidator';
 import { Title } from "@angular/platform-browser";
-
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
@@ -17,9 +18,11 @@ import { Title } from "@angular/platform-browser";
 })
 export class EditProfileComponent implements OnInit {
   public userDetails:any
+  profile:any
   closeResult = '';
   message = '';
   errorMessage = ''; // validation error handle
+  Baseurl=environment.BaseUrl;
   error: { name: string, message: string } = { name: '', message: '' }; // for firbase error handle
   hasError: boolean = false;
   public registerForm! : FormGroup;
@@ -36,9 +39,11 @@ export class EditProfileComponent implements OnInit {
     private route: ActivatedRoute,
     private apiService: ApiService,
     private toastr: ToastrService,
-    private titleService: Title
+    private titleService: Title,
+    private http:HttpClient
   ) {
-    this.userDetails=apiService.getUserDetails()
+    this.userDetails=apiService.getUserDetails();
+    this.profile=this.userDetails.profile;
     this.countries=['Germany','Real Estate','Canada','Usa','Afghanistan','Albania','China','Denmark','Finland','India','Kiribati','Mexico','Pakistan']
    }
 
@@ -108,6 +113,12 @@ export class EditProfileComponent implements OnInit {
          
         ]),
       ],
+      Bio:[
+        '',
+        Validators.compose([
+         
+        ]),
+      ],
       google:[
         '',
         Validators.compose([
@@ -157,7 +168,55 @@ export class EditProfileComponent implements OnInit {
 
   register() {
 
-    console.log('form value is ',this.form)
+       let userProfile={
+        firstName:this.form.firstName.value,
+        lastName:this.form.lastName.value,
+        email:this.form.email.value,
+        bio:this.form.Bio.value,
+        about:this.form.about.value,
+        city:this.form.city.value,
+        Google:this.form.google.value,
+        Pinterest:this.form.pinterest.value,
+        Twitter:this.form.twitter.value,
+        CountryName:this.form.countryName.value,
+        _id:this.userDetails._id       
+       }
+    
+       this.apiService.postData("auth/update", userProfile).subscribe(
+        (result: any) => {   
+          if(result.responseCode===200){
+            // Handle result
+            
+          } 
+        },
+        (error) => {
+          // Handle error
+          this.hasError = true;      
+          this.toastr.error(error.error.responseMessage, "Error!");
+          console.log("error inside");
+        },
+        () => {
+          this.toastr.success("Successfully registered.", "Success!");
+          this.router.navigate(['/auth/login']);    
+          // 'onCompleted' callback.
+          // No errors, route to new page here
+        }
+      );
+
+
+
+
+
+
+      
+    
+    
+    
+    
+    
+    
+    
+    
     // this.clearErrorMessage();
     // if (this.validateForm(this.email, this.password)) {
     //   this.authservice.registerWithEmail(this.email, this.password)
@@ -253,16 +312,16 @@ export class EditProfileComponent implements OnInit {
   }
   onFileChange(event:any){
  
-    const file = event.target.files[0]
-    const uploadData = new FormData();
-
-    uploadData.append('myFile', file);
-
-  
+    var image = <File>event.target.files[0]
+    console.log(image);
+    const  fd= new FormData();
+    fd.append('profileImage',image,image.name);
     
-
-    this.apiService.postData("user/profile",uploadData).subscribe(
-      (result: any) => {   
+    this.http.post("https://us-central1-kenandemo-bdb1d.cloudfunctions.net/app/upload",fd).subscribe(
+      (result: any) => {
+       
+        this.profile=result.doc.profile   
+     
         if(result.responseCode===200){
           // Handle result
           
@@ -276,7 +335,7 @@ export class EditProfileComponent implements OnInit {
       },
       () => {
         this.toastr.success("Successfully registered.", "Success!");
-        this.router.navigate(['/auth/login']);    
+        //this.router.navigate(['/auth/login']);    
         // 'onCompleted' callback.
         // No errors, route to new page here
       }

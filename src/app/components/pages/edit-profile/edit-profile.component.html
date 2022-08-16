@@ -18,7 +18,7 @@
 						<div class="row">
 							<div class="col-xl-4 col-lg-5">
 								<div class="card box-widget widget-user">
-									<div class="widget-user-image mx-auto mt-5 text-center"><img alt="User Avatar" class="rounded-circle" src="../../assets/images/users/16.jpg"></div>
+									<div class="widget-user-image mx-auto mt-5 text-center"><img alt="User Avatar" class="rounded-circle" src="{{profile}}"></div>
 									<div class="card-body text-center">
 										<div class="pro-user">
 											<h3 class="pro-user-username text-dark mb-1">{{userDetails.firstName +' '+userDetails.lastName | titlecase}}</h3>
@@ -43,36 +43,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="card">
-									<div class="card-header">
-										<div class="card-title">Edit Password</div>
-									</div>
-									<div class="card-body">
-										<div class="text-center mb-5">
-											<img alt="User Avatar" class="rounded-circle  me-3" src="../../assets/images/users/16.jpg">
-											<div class="mt-4 ms-0 ms-sm-auto ">
-												<a routerLink="/pages/profile/profile01" class="btn btn-primary mb-1 me-2">Edit profile</a>
-												<a href="javascript:void(0)" class="btn btn-danger mb-1">Delete profile</a>
-											</div>
-										</div>
-										<div class="mb-3">
-											<label class="form-label">Change Password</label>
-											<input type="password" class="form-control" value="password">
-										</div>
-										<div class="mb-3">
-											<label class="form-label">New Password</label>
-											<input type="password" class="form-control" value="password">
-										</div>
-										<div class="mb-3">
-											<label class="form-label">Confirm Password</label>
-											<input type="password" class="form-control" value="password">
-										</div>
-									</div>
-									<div class="card-footer text-end">
-										<a href="javascript:void(0)" class="btn btn-primary me-2">Updated</a>
-										<a href="javascript:void(0)" class="btn btn-danger">Cancel</a>
-									</div>
-								</div>
+							
 							</div>
 							<div class="col-xl-8 col-lg-7">
 								<form [formGroup]="registerForm" (ngSubmit)="register()">
@@ -82,7 +53,7 @@
 									</div>
 									<div class="card-body">
 
-										<div class="card-title font-weight-bold d-flex justify-content-between">Basci info:
+										<div class="card-title font-weight-bold d-flex justify-content-between">Add
 											
 											<div class="bg-primary text-white addImage"> 
 												
@@ -148,7 +119,8 @@
 											
 											
 											</div>
-											<div class="col-sm-6 col-md-6">
+											<div class="row">
+											<div class="col-sm-6 col-md-5 ms-4">
 												<div class="mb-3">
 													<label class="form-label">Email address</label>
 													<input type="email" name="Email" class="form-control"
@@ -163,6 +135,24 @@
 												  </div>
 												</div>
 											</div>
+											<div class="col-sm-6 col-md-5">
+												<div class="mb-3">
+													<label class="form-label">Bio</label>
+													<input type="email" name="Bio" class="form-control"
+													autocomplete="off" placeholder="Bio" required
+													[ngClass]="{
+														'is-invalid': registerForm.controls['Bio'].invalid && (registerForm.controls['Bio'].dirty || registerForm.controls['Bio'].touched) 
+													  }" formControlName="Bio">
+												</div>
+											
+											</div>
+										</div>
+
+
+
+
+
+											
 											<div class="col-sm-6 col-md-6">
 												<div class="mb-3">
 													<label class="form-label">Phone Number</label>
@@ -236,8 +226,8 @@
 											<div class="col-md-5">
 												<div class="mb-3">
 													<label class="form-label">Country</label>
-													<select formControlName="countryName" class="form-control nice-select ">
-														<option [ngValue]="" disabled>Select</option>
+													<select formControlName="countryName" class=" nice-select">
+														<option class="dropdown-toggle" value="">Select</option>
 														<option *ngFor="let name of countries" [ngValue]="name">
 														 {{ name }}
 														</option>
@@ -259,7 +249,7 @@
 												<div class="mb-3">
 													<label class="form-label">Facebook</label>
 													<input type="text" name="google" class="form-control"
-													autocomplete="off" placeholder="https://www.facebook.com/" required
+													autocomplete="off" placeholder="https://www.facebook.com/"
 														formControlName="facebook">
 													</div>
 												
@@ -269,7 +259,7 @@
 												<div class="mb-3">
 													<label class="form-label">Google</label>
 													<input type="text" name="google" class="form-control"
-													autocomplete="off" placeholder="https://www.google.com/" required
+													autocomplete="off" placeholder="https://www.google.com/" 
 													 formControlName="google">
 													</div>
 													
@@ -292,7 +282,7 @@
 										<div class="row">
 											<div class="col-md-12">
 												<div class="mb-3">
-													<label class="form-label ms-5">About Me</label>
+													<label class="form-label aboutMe">About Me</label>
 													<textarea rows="4"  class="form-control about" placeholder="Enter About your description"
 													[ngClass]="{
 														'is-invalid': registerForm.controls['about'].invalid && (registerForm.controls['about'].dirty || registerForm.controls['about'].touched) 
@@ -308,7 +298,7 @@
 												</div>
 											</div>
 										</div>
-										<button type="submit" [disabled]="registerForm.invalid"
+										<button type="submit" [disabled]="!registerForm.invalid"
 											class="btn btn-primary updatebtn">
 										 update</button>
 										</div>
