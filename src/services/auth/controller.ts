@@ -329,7 +329,7 @@ try
   }
   delete userProfile['_id']
 })
- const result1 =await userModel.findByIdAndUpdate(id, userProfile,
+ const result =await userModel.findByIdAndUpdate(id, userProfile,
   function (err, docs) {
       if (err) {
           console.log('error', err)
@@ -341,8 +341,8 @@ try
 
 
 
-console.log(result1);
-return;
+
+return result;
 
 
 

@@ -103,22 +103,15 @@ export default [
     method: "post",
     handler: [
       async (req: Request, res: Response, next: NextFunction) => {
-         
-
         const result = await updateProfile(req.body);
+        console.log('asfldkasdfjlkasfdlsad0',result)
         res.status(200).send(result);
           
           }
         
         
         ]
-          
-         
-
-
-
-
-        //const result = await test(req.body, res, next);
+         //const result = await test(req.body, res, next);
         //res.status(200).send(result);
    
   },
