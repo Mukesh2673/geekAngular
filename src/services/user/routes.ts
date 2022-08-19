@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { addUser, getUserList, getUserDetail, deleteUser, updateStatus, fileUpload} from "./controller";
+import { addUser, getUserList, getUserDetail, deleteUser, updateStatus, fileUpload, getUsers} from "./controller";
 import config from "config";
 import { checkAuthenticate } from "../../middleware/checks";
 import { imgModel } from "../../db/image";
@@ -14,23 +14,13 @@ const upload = require('../../utils/upload').upload;
 
 export default [
   {
-    path: currentPathURL,
-    method: "post",
-    handler: [
-      checkAuthenticate,
-      async (req: Request, res: Response) => {
-        const result = await addUser(req.get(config.get('AUTHORIZATION')),req.body);
-        res.status(200).send(result);
-      }
-    ]
-  },
-  {
-    path: currentPathURL,
+    path: currentPathURL+'/details',
     method: "get",
     handler: [
       checkAuthenticate,
       async (req: Request, res: Response) => {
-        const result = await getUserList(req.get(config.get('AUTHORIZATION')),req.query);
+        console.log('get data',req.get(config.get("AUTHORIZATION")))
+        const result = await getUserDetail(req,res);
         res.status(200).send(result);
       }
     ]
@@ -41,7 +31,7 @@ export default [
     handler: [
       checkAuthenticate,
       async (req: Request, res: Response) => {
-        const result = await getUserDetail(req.params.id);
+        const result = await getUsers(req.params.id);
         res.status(200).send(result);
       }
     ]

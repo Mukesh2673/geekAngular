@@ -106,7 +106,7 @@ export default [
          
 
         const result = await updateProfile(req.body);
-        //res.status(200).send(result);
+        res.status(200).send(result);
           
           }
         

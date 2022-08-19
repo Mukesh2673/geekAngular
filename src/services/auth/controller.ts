@@ -318,27 +318,33 @@ export const test = async (a: any, b: any, c: any) => {
 
 
 
-export const updateProfile = async (data: any) => {
-try{
+export const updateProfile = async (data: any) =>{
+try
+{
   const id=data._id;
-  let userProfile=data;  
+  let userProfile=data;
  Object.keys(userProfile).forEach(key => {
   if (userProfile[key] === '') {
     delete userProfile[key];
   }
   delete userProfile['_id']
 })
+ const result1 =await userModel.findByIdAndUpdate(id, userProfile,
+  function (err, docs) {
+      if (err) {
+          console.log('error', err)
+      }
+      else {
+          return docs;
+      }
+  });
 
 
 
-console.log(userProfile);
+console.log(result1);
 return;
 
 
-
- let result=await userModel.findByIdAndUpdate(data._id, { firstName: data.firstName,lastName:data.lastName,
-  email:data.email
-  })
 
 
 

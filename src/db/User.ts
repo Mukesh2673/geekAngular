@@ -26,14 +26,56 @@ const userSchema = new mongoose.Schema({
     type: String,
     default:"",
   },
+  bio:{
+    type: String,
+    default:"",
+  },
+  phone:{
+    type: Number,
+    default:"",
+  },
+  address:{
+    type: String,
+    default:"",
+  },
+  city:{
+    type: String,
+    default:"",
+  },
+  postalCode:{
+    type: String,
+    default:"",
+  },
+  country:{
+    type: String,
+    default:"",
+  },
+  facebook:{
+    type: String,
+    default:"",
+  },
+  google:{
+    type: String,
+    default:"",
+  },
+  twitter:{
+    type: String,
+    default:"",
+  },
+  pinterest:{
+    type: String,
+    default:"",
+  },
+  about:{
+    type: String,
+    default:"",
+  },
   
   profile:{
   
         type: String,
         default:""
-    
   },
-
   // createdAt: {
   //   type: Date,
   //   default: Date.now,

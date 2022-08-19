@@ -55,14 +55,20 @@ export const getUserList = async (token:any,body: any) => {
  * Get User detail by User id
  * @param body 
  */
-export const getUserDetail = async (id: string) => {
-        let userRes = await userModel.findOne({ _id: mongoose.Types.ObjectId(id) });
-        if (userRes) {
-            return { responseCode: 200, responseMessage: 'Success', data: userRes };
-        } else {
-            throw new HTTP404Error({ responseCode: 404, responseMessage: config.get('ERRORS.NO_RECORD_FOUND') });
-        }
+export const getUserDetail = async (req: any, res: any) => {
+    const token: any = req.get(config.get("AUTHORIZATION"));   
+    let doc = await userModel.findOneAndUpdate({ accessToken: token }); 
+return { doc };
 }
+export const  getUsers = async (id: string) => {
+    let userRes = await userModel.findOne({ _id: mongoose.Types.ObjectId(id) });
+    if (userRes) {
+        return { responseCode: 200, responseMessage: 'Success', data: userRes };
+    } else {
+        throw new HTTP404Error({ responseCode: 404, responseMessage: config.get('ERRORS.NO_RECORD_FOUND') });
+    }
+}
+
 
 /**
  * Delete User
@@ -101,7 +107,7 @@ export const updateStatus = async (body: any, id: string) => {
           // let filename = req.files[0].filename + `-` + Date.now() + path.extname(req.files[0].originalname);
       
           let filename = req.files[0].filename + `-` + Date.now() + '.webp';
-      
+            console.log(filename);
           let old: any = req.files[0].path;
           let newPath: any = process.cwd() + '/public/upload/' + filename;
       
@@ -109,13 +115,14 @@ export const updateStatus = async (body: any, id: string) => {
             if (err) throw err
           })
           let fileUrl = `${filePath}/` + filename;
-
+          console.log('fileuerl',fileUrl)
+          
           
           const token: any = req.get(config.get("AUTHORIZATION"));
           let doc = await userModel.findOneAndUpdate({ accessToken: token },{profile:fileUrl}, {
               new: true
-            });
-          return { doc };
+            }); 
+      return { doc };
         }
         catch (error) {
           next(error);
