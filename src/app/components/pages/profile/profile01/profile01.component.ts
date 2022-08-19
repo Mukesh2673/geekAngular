@@ -65,6 +65,7 @@ share(){
       }
       this.apiService.postData("post/add", post).subscribe(
      (result: any) => {
+      this.timeLine=[...this.timeLine,result]
      this.sharePost.setValue({post:''});
       console.log(result);
       
