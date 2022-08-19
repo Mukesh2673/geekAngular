@@ -11,6 +11,7 @@ import { MustMatch } from '../../../shared/validations/passwordValidator';
 import { Title } from "@angular/platform-browser";
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
@@ -30,7 +31,8 @@ export class EditProfileComponent implements OnInit {
   get form(){
     return this.registerForm.controls;
   }
-
+ 
+  
   constructor(
     private authservice: AuthService,
     private router: Router,
@@ -49,24 +51,25 @@ export class EditProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle(`JOA | Registration`);
+
     this.registerForm = this.formBuilder.group({
       firstName: [
         //this.defaultAuth.email,
-        '',
+        this.userDetails.firstName,
         Validators.compose([
           Validators.required
         ]),
       ],
       lastName: [
         //this.defaultAuth.email,
-        '',
+        this.userDetails.lastName,
         Validators.compose([
           Validators.required
         ]),
       ],
       email: [
         //this.defaultAuth.email,
-        '',
+      this.userDetails.email,
         Validators.compose([
           Validators.required,
           Validators.email,
@@ -148,7 +151,7 @@ export class EditProfileComponent implements OnInit {
       about:[
         '',
         Validators.compose([
-          Validators.required
+     
         ]),
       ],
 
@@ -159,6 +162,32 @@ export class EditProfileComponent implements OnInit {
  
     );
 
+  this.getUserData();
+  }
+
+
+  getUserData()
+  {
+   let user=this.apiService.getUserDetails(); 
+   this.apiService.getData(`users/detail/${user._id}`).subscribe(
+      (result: any) => {   
+        console.log(result);
+        if(result.responseCode===200){
+          // Handle result
+          
+        } 
+      },
+      (error) => {
+        // Handle error
+        this.hasError = true;      
+        this.toastr.error(error.error.responseMessage, "Error!");
+        console.log("error inside");
+      }
+
+    );
+
+
+
   }
 
   clearErrorMessage() {
@@ -167,27 +196,31 @@ export class EditProfileComponent implements OnInit {
   }
 
   register() {
-
        let userProfile={
         firstName:this.form.firstName.value,
         lastName:this.form.lastName.value,
         email:this.form.email.value,
         bio:this.form.Bio.value,
+        phone:this.form.phone.value,
+        address:this.form.address.value,
         about:this.form.about.value,
         city:this.form.city.value,
+        postalCode:this.form.postalCode.value,
         Google:this.form.google.value,
         Pinterest:this.form.pinterest.value,
         Twitter:this.form.twitter.value,
-        CountryName:this.form.countryName.value,
+        country:this.form.countryName.value,
         _id:this.userDetails._id       
        }
     
        this.apiService.postData("auth/update", userProfile).subscribe(
         (result: any) => {   
-          if(result.responseCode===200){
+          localStorage.setItem("joaUserobject", JSON.stringify(result));
+
+          //if(result.responseCode===200){
             // Handle result
             
-          } 
+           
         },
         (error) => {
           // Handle error
@@ -197,7 +230,7 @@ export class EditProfileComponent implements OnInit {
         },
         () => {
           this.toastr.success("Successfully registered.", "Success!");
-          this.router.navigate(['/auth/login']);    
+          //this.router.navigate(['/auth/login']);    
           // 'onCompleted' callback.
           // No errors, route to new page here
         }
@@ -313,15 +346,14 @@ export class EditProfileComponent implements OnInit {
   onFileChange(event:any){
  
     var image = <File>event.target.files[0]
-    console.log(image);
     const  fd= new FormData();
     fd.append('profileImage',image,image.name);
-    
-    this.http.post("https://us-central1-kenandemo-bdb1d.cloudfunctions.net/app/upload",fd).subscribe(
+    this.apiService.postDataMultipart("users/profile",fd).subscribe(
       (result: any) => {
-       
-        this.profile=result.doc.profile   
-     
+         
+        this.profile=result.doc.profile
+        console.log(result.doc);
+        localStorage.setItem("joaUserobject", JSON.stringify(result.doc)); 
         if(result.responseCode===200){
           // Handle result
           

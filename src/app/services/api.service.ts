@@ -72,7 +72,7 @@ getUserDetails(){
       }),
     };
 
-    return this.http.post(url, data);
+    return this.http.post(this.BaseUrl +url, data,headers);
   }
 
   putData(url: string, data) {
