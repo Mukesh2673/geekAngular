@@ -20,7 +20,6 @@ get form(){
      this.userDetails=apiService.getUserDetails()
     }
   ngOnInit(): void {
-  console.log(this.userDetails)
 
   this.sharePost = this.formBuilder.group({
     post: [
@@ -34,18 +33,16 @@ get form(){
     
 }
 getPost(){
-console.log('getPostdata')
 let id=this.userDetails._id
 this.apiService.getData(`post/get/${id}`).subscribe(
   (result: any) => {
-    this.timeLine=[...result]
-    console.log(result)
-    console.log('value of timeline',this.timeLine);
+    this.timeLine=[...result].reverse()
+    
     //localStorage.setItem("joaUserobject", JSON.stringify(result));
 
     //if(result.responseCode===200){
       // Handle result
-      
+  
      
   },
   (error) => {
@@ -65,9 +62,10 @@ share(){
       }
       this.apiService.postData("post/add", post).subscribe(
      (result: any) => {
-      this.timeLine=[...this.timeLine,result]
-     this.sharePost.setValue({post:''});
-      console.log(result);
+      this.timeLine=[...this.timeLine,result.data].reverse()
+      this.sharePost.setValue({post:''});
+      
+    
       
       
        //localStorage.setItem("joaUserobject", JSON.stringify(result));
