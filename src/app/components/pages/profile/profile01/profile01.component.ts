@@ -54,6 +54,9 @@ this.apiService.getData(`post/get/${id}`).subscribe(
 );
 
 }
+onFileChange(event){
+  console.log(event)
+}
 share(){
       let post={post:this.sharePost.value.post,
       userName:this.userDetails.firstName+this.userDetails.lastName,
@@ -64,15 +67,10 @@ share(){
      (result: any) => {
       this.timeLine=[...this.timeLine,result.data].reverse()
       this.sharePost.setValue({post:''});
-      
-    
-      
-      
        //localStorage.setItem("joaUserobject", JSON.stringify(result));
 
        //if(result.responseCode===200){
          // Handle result
-         
         
      },
      (error) => {
@@ -82,6 +80,25 @@ share(){
      },
 
    );
+}
+deletePost(id){
+  console.log('value of timeline is',id)
+  this.apiService.deleteData(`post/delete/${id}`).subscribe(
+    (result: any) => {
+      console.log('delete',result);
+      //localStorage.setItem("joaUserobject", JSON.stringify(result));
+
+      //if(result.responseCode===200){
+        // Handle result
+       
+    },
+    (error) => {
+      // Handle error
+    
+      console.log("error",error);
+    },
+
+  );
 }
 
 

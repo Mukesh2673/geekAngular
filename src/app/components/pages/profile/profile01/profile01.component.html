@@ -105,10 +105,56 @@
 														<form class="profile-edit"  [formGroup]="sharePost" (ngSubmit)="share()">
 															
 															<textarea class="form-control" placeholder="What are you doing right now?" rows="5" formControlName="post"></textarea>
-															<div class="profile-share border border-light2 border-top-0">
-																<a href="javascript:void(0)" class="me-2" title="" placement="bottom" ngbTooltip="Audio" container="body"><svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 13.3c.66 0 1.19-.54 1.19-1.2l.01-6.2c0-.66-.54-1.2-1.2-1.2s-1.2.54-1.2 1.2v6.2c0 .66.54 1.2 1.2 1.2z" opacity=".3"/><path d="M12 15c1.66 0 2.99-1.34 2.99-3L15 6c0-1.66-1.34-3-3-3S9 4.34 9 6v6c0 1.66 1.34 3 3 3zm-1.2-9.1c0-.66.54-1.2 1.2-1.2s1.2.54 1.2 1.2l-.01 6.2c0 .66-.53 1.2-1.19 1.2s-1.2-.54-1.2-1.2V5.9zm6.5 6.1c0 3-2.54 5.1-5.3 5.1S6.7 15 6.7 12H5c0 3.41 2.72 6.23 6 6.72V22h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg></a>
-																<a href="javascript:void(0)" class="me-2" title="" placement="bottom" ngbTooltip="Video" container="body"><svg  class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 8h10v8H5z" opacity=".3"/><path d="M17 7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4V7zm-2 9H5V8h10v8z"/></svg></a>
-																<a href="javascript:void(0)" class="me-2" title="" placement="bottom" ngbTooltip="Picture" container="body"><svg  class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 19h14V5H5v14zm4-5.86l2.14 2.58 3-3.87L18 17H6l3-3.86z" opacity=".3"/><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm16 14H5V5h14v14zm-4.86-7.14l-3 3.86L9 13.14 6 17h12z"/></svg></a>
+															<div class="profile-share border border-light2 border-top-0 shareIcons">
+																<div class="me-2" title="" placement="bottom" ngbTooltip="Audio" container="body">
+																	<svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 13.3c.66 0 1.19-.54 1.19-1.2l.01-6.2c0-.66-.54-1.2-1.2-1.2s-1.2.54-1.2 1.2v6.2c0 .66.54 1.2 1.2 1.2z" opacity=".3"/><path d="M12 15c1.66 0 2.99-1.34 2.99-3L15 6c0-1.66-1.34-3-3-3S9 4.34 9 6v6c0 1.66 1.34 3 3 3zm-1.2-9.1c0-.66.54-1.2 1.2-1.2s1.2.54 1.2 1.2l-.01 6.2c0 .66-.53 1.2-1.19 1.2s-1.2-.54-1.2-1.2V5.9zm6.5 6.1c0 3-2.54 5.1-5.3 5.1S6.7 15 6.7 12H5c0 3.41 2.72 6.23 6 6.72V22h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg>
+																</div>
+																<div  class="me-2" title="" placement="bottom" ngbTooltip="Video" container="body">
+
+																
+																
+																											
+																	<label>
+																		<svg  class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 8h10v8H5z" opacity=".3"/><path d="M17 7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4V7zm-2 9H5V8h10v8z"/></svg>
+																		
+																	<input 
+																	formControlName="profile"
+																	id="file" 
+																	type="file" 
+																	class="form-control"
+																	accept="videos/*"
+																	(change)="onFileChange($event)"
+																		>
+																	</label>
+																
+																
+																
+																
+																
+																
+																</div>
+																<div  class="me-2" title="" placement="bottom" ngbTooltip="Picture" container="body">
+																												
+																	<label><svg  class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 19h14V5H5v14zm4-5.86l2.14 2.58 3-3.87L18 17H6l3-3.86z" opacity=".3"/><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm16 14H5V5h14v14zm-4.86-7.14l-3 3.86L9 13.14 6 17h12z"/></svg>
+																		<input 
+																	formControlName="profile"
+																	id="file" 
+																	type="file" 
+																	class="form-control"
+																	accept="image/*"
+																	(change)="onFileChange($event)"
+																	>
+																	</label>
+															
+																</div>
+
+
+				
+
+
+
+
+
 																<button type="submit" class="btn btn-sm btn-success pull-right"><i class="fa fa-share ms-1"></i> Share</button>
 															</div>
 													
@@ -139,7 +185,7 @@
 																	<a class="new option-dots" href="JavaScript:void(0);" ngbDropdownToggle ><svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg></a>
 																	<div ngbDropdownMenu class="dropdown-menu-end">
 																		<a ngbDropdownItem href="javascript:void(0)">Edit Post</a>
-																		<a ngbDropdownItem href="javascript:void(0)">Delete Post</a>
+																		<a ngbDropdownItem href="javascript:void(0)" (click)="deletePost(item._id)">Delete Post</a>
 																		<a ngbDropdownItem href="javascript:void(0)">Personal Settings</a>
 																	</div>
 																</div>
