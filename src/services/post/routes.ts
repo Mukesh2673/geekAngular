@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import {addpost, getuserPost} from "./controller";
+import {addpost, deleteUserPost, getuserPost} from "./controller";
 import config from "config";
 import { checkAuthenticate } from "../../middleware/checks";
 import { imgModel } from "../../db/image";
@@ -31,7 +31,20 @@ export default[
         res.status(200).send(result);
       }
     ]
+  },
+  {
+    path: currentPathURL+'/delete/:id',
+    method: "delete",
+    handler: [
+      async (req: Request, res: Response) => {
+        console.log('delete id is',req.params.id);
+        
+        const result = await deleteUserPost(req.params.id);
+        res.status(200).send(result);
+      }
+    ]
   }
+
 ]  
       
     

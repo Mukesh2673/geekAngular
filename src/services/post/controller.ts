@@ -32,8 +32,16 @@ export const getuserPost=async(_id:any)=>{
      catch(error){
         throw error;
      } */
+}
+export const deleteUserPost=async(id:any)=>{
+   try{
+      //let data: any = await userPostModel.find({ userId: _id });
+      //return data;
+      console.log('deleted post is',id)
+   
+   }
+  catch(error){
 
-
-
+  }
 }
 
